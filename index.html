@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MathSMP — Belajar Matematika SMP Interaktif</title>
+<style>
+/* ═══════════════════════════════════════════════
+   CSS VARIABLES — PALET WARNA UTAMA
+═══════════════════════════════════════════════ */
+:root {
+  --biru:       #185FA5; --biru-muda:  #E6F1FB; --biru-teks:  #0C447C;
+  --hijau:      #3B6D11; --hijau-muda: #EAF3DE; --hijau-teks: #27500A;
+  --amber:      #854F0B; --amber-muda: #FAEEDA; --amber-teks: #633806;
+  --ungu:       #534AB7; --ungu-muda:  #EEEDFE; --ungu-teks:  #3C3489;
+  --merah:      #A32D2D; --merah-muda: #FCEBEB; --merah-teks: #791F1F;
+  --teal:       #0F6E56; --teal-muda:  #E1F5EE; --teal-teks:  #085041;
+  --bg:         #ffffff;
+  --bg2:        #F8F7F4;
+  --bg3:        #F1EFE8;
+  --teks:       #1a1a18;
+  --teks2:      #5F5E5A;
+  --teks3:      #888780;
+  --border:     rgba(0,0,0,0.09);
+  --border2:    rgba(0,0,0,0.16);
+  --radius-sm:  8px;
+  --radius-md:  12px;
+  --radius-lg:  16px;
+  --shadow:     0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  --font:       'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ═══════════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font);
+  background: var(--bg2);
+  color: var(--teks);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+a { color: var(--biru); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ═══════════════════════════════════════════════
+   HALAMAN (SPA)
+═══════════════════════════════════════════════ */
+.page { display: none; min-height: 100vh; }
+.page.aktif { display: block; }
+
+/* ═══════════════════════════════════════════════
+   ████ HALAMAN BERANDA ████
+═══════════════════════════════════════════════ */
+#page-home {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  padding: 56px 20px 48px;
+  position: relative;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--biru-muda);
+  color: var(--biru-teks);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  letter-spacing: .03em;
+}
+.hero h1 {
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 800;
+  color: var(--teks);
+  letter-spacing: -.02em;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.hero h1 span { color: var(--biru); }
+.hero p {
+  font-size: 16px;
+  color: var(--teks2);
+  max-width: 540px;
+  margin: 0 auto 28px;
+}
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.stat { text-align: center; }
+.stat-num {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--biru);
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--teks3);
+}
+
+/* ── Progress Global ── */
+.progress-global {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow);
+}
+.progress-global h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teks2);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.progress-bar-wrap {
+  background: var(--bg3);
+  border-radius: 100px;
+  height: 10px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--biru), var(--teal));
+  border-radius: 100px;
+  width: 0%;
+  transition: width .6s ease;
+}
+
+/* ── Pencarian ── */
+.pencarian-wrap {
+  position: relative;
+  margin-bottom: 28px;
+}
+.pencarian-wrap svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--teks3);
+  pointer-events: none;
+}
+#inputCari {
+  width: 100%;
+  padding: 12px 16px 12px 42px;
+  border: 1.5px solid var(--border2);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--teks);
+  transition: border-color .2s, box-shadow .2s;
+}
+#inputCari:focus {
+  outline: none;
+  border-color: var(--biru);
+  box-shadow: 0 0 0 3px rgba(24,95,165,0.12);
+}
+#inputCari::placeholder { color: var(--teks3); }
+
+/* ── Filter Fase ── */
+.filter-fase {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.btn-fase {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border2);
+  background: var(--bg);
+  color: var(--teks2);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .15s;
+}
+.btn-fase:hover { border-color: var(--biru); color: var(--biru); }
+.btn-fase.aktif {
+  background: var(--biru);
+  border-color: var(--biru);
+  color: #fff;
+}
+
+/* ── Grid Bab ── */
+.fase-section { margin-bottom: 36px; }
+.fase-judul {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--teks3);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.fase-judul-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.bab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.kartu-bab {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  cursor: pointer;
+  transition: all .18s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.kartu-bab::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  opacity: 0;
+  transition: opacity .18s;
+}
+.kartu-bab:hover {
+  border-color: var(--border2);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.kartu-bab:hover::before { opacity: 1; }
+.kartu-bab.tersedia:hover { border-color: var(--biru); }
+.kartu-bab.tersedia::before { background: var(--biru); }
+.kartu-bab.segera { opacity: .65; cursor: default; }
+.kartu-bab.segera:hover { transform: none; box-shadow: none; border-color: var(--border); }
+
+.bab-nomor {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--teks3);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.bab-nama {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--teks);
+  line-height: 1.35;
+  flex: 1;
+}
+.bab-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+.bab-kelas {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+.kls-7 { background: var(--biru-muda); color: var(--biru-teks); }
+.kls-8 { background: var(--hijau-muda); color: var(--hijau-teks); }
+.kls-9 { background: var(--ungu-muda); color: var(--ungu-teks); }
+
+.bab-badge-segera {
+  font-size: 10px;
+  background: var(--bg3);
+  color: var(--teks3);
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+.bab-badge-baru {
+  font-size: 10px;
+  background: var(--hijau-muda);
+  color: var(--hijau-teks);
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+.kartu-bab-hidden { display: none !important; }
+
+/* ══════════════════════════════════════════════════════
+   ████ LAYOUT BAB — SIDEBAR + KONTEN ████
+══════════════════════════════════════════════════════ */
+.bab-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 240px;
+  min-width: 240px;
+  background: var(--bg);
+  border-right: 1px solid var(--border);
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar-logo {
+  padding: 0 20px 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+.sidebar-logo-nama {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--biru);
+  letter-spacing: -.02em;
+}
+.sidebar-logo-sub {
+  font-size: 11px;
+  color: var(--teks3);
+  margin-top: 2px;
+}
+.sidebar-bab-judul {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--teks3);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  padding: 0 20px;
+  margin-bottom: 8px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--teks2);
+  transition: all .15s;
+  border-left: 3px solid transparent;
+}
+.nav-item:hover { background: var(--bg2); color: var(--teks); }
+.nav-item.aktif {
+  background: var(--biru-muda);
+  color: var(--biru-teks);
+  border-left-color: var(--biru);
+  font-weight: 600;
+}
+.nav-item-icon {
+  width: 22px; height: 22px;
+  background: var(--bg2);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.nav-item.aktif .nav-item-icon { background: rgba(24,95,165,0.12); }
+
+.sidebar-progress {
+  margin: auto 0 0;
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+}
+.sidebar-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--teks3);
+  margin-bottom: 8px;
+}
+.sidebar-progress-bar {
+  background: var(--bg3);
+  border-radius: 100px;
+  height: 6px;
+  overflow: hidden;
+}
+.sidebar-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--biru), var(--teal));
+  border-radius: 100px;
+  width: 25%;
+  transition: width .4s ease;
+}
+
+/* ── Konten Bab ── */
+.bab-konten {
+  flex: 1;
+  padding: 32px;
+  max-width: 760px;
+  overflow-x: hidden;
+}
+.bab-header {
+  margin-bottom: 28px;
+}
+.bab-header-breadcrumb {
+  font-size: 12px;
+  color: var(--teks3);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.bab-header-breadcrumb span { color: var(--teks2); }
+.bab-header h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--teks);
+  letter-spacing: -.02em;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.bab-header-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ── Seksi ── */
+.seksi { display: none; }
+.seksi.tampil { display: block; }
+
+/* ── Komponen Konten ── */
+.kartu {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+.kartu h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--teks);
+  margin-bottom: 12px;
+}
+.kartu h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--teks);
+  margin-bottom: 8px;
+}
+
+.analogi {
+  background: var(--hijau-muda);
+  border-left: 4px solid var(--hijau);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  color: var(--hijau-teks);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.analogi strong { font-weight: 700; }
+
+.info-box {
+  display: flex;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.info-box .ikon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.info-box.info    { background: var(--biru-muda); color: var(--biru-teks); }
+.info-box.tips    { background: var(--hijau-muda); color: var(--hijau-teks); }
+.info-box.hati    { background: var(--amber-muda); color: var(--amber-teks); }
+.info-box.bahaya  { background: var(--merah-muda); color: var(--merah-teks); }
+.info-box.sukses  { background: var(--teal-muda); color: var(--teal-teks); }
+
+.rumus {
+  background: var(--biru-muda);
+  border: 1px solid rgba(24,95,165,0.2);
+  border-radius: var(--radius-sm);
+  padding: 14px 20px;
+  font-family: 'Courier New', 'Consolas', monospace;
+  font-size: 15px;
+  color: var(--biru-teks);
+  margin-bottom: 14px;
+  line-height: 1.8;
+}
+
+.tabel-wrap { overflow-x: auto; margin-bottom: 14px; }
+table.sifat {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+table.sifat th {
+  background: var(--bg2);
+  color: var(--teks2);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 2px solid var(--border2);
+}
+table.sifat td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--teks);
+  vertical-align: top;
+}
+table.sifat tr:last-child td { border-bottom: none; }
+table.sifat tr:hover td { background: var(--bg2); }
+
+/* ── Soal & Solusi ── */
+.soal-box {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.soal-box .soal-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--teks3);
+  margin-bottom: 6px;
+}
+.soal-box p { line-height: 1.65; }
+.btn-solusi {
+  background: none;
+  border: 1.5px solid var(--border2);
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--biru-teks);
+  cursor: pointer;
+  transition: all .15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.btn-solusi:hover { background: var(--biru-muda); border-color: var(--biru); }
+.solusi {
+  display: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  font-size: 14px;
+  margin-bottom: 14px;
+  line-height: 1.7;
+}
+.solusi.buka { display: block; }
+.solusi ol { padding-left: 20px; }
+.solusi ol li { margin-bottom: 6px; }
+.solusi .hasil {
+  background: var(--hijau-muda);
+  color: var(--hijau-teks);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* ── Kuis ── */
+.kuis-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--teks3);
+  margin-bottom: 8px;
+}
+.kuis-soal {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--teks);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.kuis-opsi {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.opsi {
+  background: var(--bg2);
+  border: 1.5px solid var(--border2);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 14px;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: all .15s;
+  color: var(--teks);
+}
+.opsi:hover:not(:disabled) { background: var(--biru-muda); border-color: var(--biru); color: var(--biru-teks); }
+.opsi.benar { background: var(--hijau-muda) !important; border-color: var(--hijau) !important; color: var(--hijau-teks) !important; font-weight: 600; }
+.opsi.salah { background: var(--merah-muda) !important; border-color: var(--merah) !important; color: var(--merah-teks) !important; }
+.opsi:disabled { cursor: default; }
+.kuis-fb {
+  display: none;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg2);
+  margin-bottom: 10px;
+}
+.kuis-fb.tampil { display: block; }
+.kuis-pembahasan {
+  display: none;
+  background: var(--biru-muda);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  font-size: 13px;
+  color: var(--biru-teks);
+  line-height: 1.65;
+  margin-top: 8px;
+}
+.kuis-fb.tampil + .kuis-pembahasan { display: block; }
+
+/* ── Level Banner ── */
+.level-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.banner-sd  { background: var(--hijau-muda); color: var(--hijau-teks); }
+.banner-smp { background: var(--biru-muda);  color: var(--biru-teks);  }
+.banner-sma { background: var(--ungu-muda);  color: var(--ungu-teks);  }
+
+/* ── Navigasi Bawah Seksi ── */
+.nav-bawah {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 24px 0 40px;
+  margin-top: 8px;
+  border-top: 1px solid var(--border);
+}
+.btn-nav {
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border2);
+  background: var(--bg);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--teks2);
+  cursor: pointer;
+  font-family: var(--font);
+  transition: all .15s;
+}
+.btn-nav:hover { border-color: var(--biru); color: var(--biru); background: var(--biru-muda); }
+.btn-nav.primer {
+  background: var(--biru);
+  border-color: var(--biru);
+  color: #fff;
+}
+.btn-nav.primer:hover { background: var(--biru-teks); border-color: var(--biru-teks); }
+
+/* ── Interaktif ── */
+.interaktif-wrap {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.interaktif-wrap h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--teks2);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 14px;
+}
+input[type=range] {
+  width: 100%;
+  accent-color: var(--biru);
+}
+.output-nilai {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--biru);
+  text-align: center;
+  margin: 8px 0;
+}
+
+/* ═══════════════════════════════════════════════
+   PLACEHOLDER BAB (SEGERA HADIR)
+═══════════════════════════════════════════════ */
+.placeholder-konten {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 32px;
+  min-height: 60vh;
+}
+.placeholder-ikon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  opacity: .4;
+}
+.placeholder-konten h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--teks);
+  margin-bottom: 8px;
+}
+.placeholder-konten p {
+  font-size: 15px;
+  color: var(--teks2);
+  max-width: 360px;
+  margin-bottom: 24px;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE MOBILE
+═══════════════════════════════════════════════ */
+@media (max-width: 720px) {
+  .bab-layout { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    min-width: unset;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+  }
+  .sidebar-progress { display: none; }
+  .bab-konten { padding: 20px 16px; }
+  .bab-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  #page-home { padding: 0 12px 40px; }
+  .hero { padding: 36px 12px 32px; }
+  .hero-stats { gap: 20px; }
+}
+@media (max-width: 400px) {
+  .bab-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ████████████████████████████████████████████
+     HALAMAN BERANDA
+████████████████████████████████████████████ -->
+<div id="page-home" class="page aktif">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-badge">📐 Kurikulum Merdeka 2022</div>
+    <h1>Belajar <span>Matematika SMP</span><br>dengan Cara yang Seru</h1>
+    <p>27 bab interaktif untuk kelas 7–9. Visualisasi, latihan soal, dan penjelasan langkah demi langkah — semua gratis, buka di browser.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">27</div><div class="stat-label">Bab Materi</div></div>
+      <div class="stat"><div class="stat-num">135+</div><div class="stat-label">Contoh Soal</div></div>
+      <div class="stat"><div class="stat-num">54+</div><div class="stat-label">Soal Kuis</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Tahun Kelas</div></div>
+    </div>
+  </div>
+
+  <!-- Progress Global -->
+  <div class="progress-global">
+    <h3>
+      <span>Progress Belajarmu</span>
+      <span id="pct-global">0 / 27 bab</span>
+    </h3>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="prog-global" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- Pencarian -->
+  <div class="pencarian-wrap">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input type="text" id="inputCari" placeholder="Cari bab... misal: aljabar, pythagoras, peluang" oninput="cariBAB(this.value)">
+  </div>
+
+  <!-- Filter Fase -->
+  <div class="filter-fase" id="filterFase">
+    <button class="btn-fase aktif" onclick="filterFaseKlik(this, 'semua')">Semua</button>
+    <button class="btn-fase" onclick="filterFaseKlik(this, 'fase1')">Fase 1 — Fondasi</button>
+    <button class="btn-fase" onclick="filterFaseKlik(this, 'fase2')">Fase 2 — Fungsi</button>
+    <button class="btn-fase" onclick="filterFaseKlik(this, 'fase3')">Fase 3 — Geometri</button>
+    <button class="btn-fase" onclick="filterFaseKlik(this, 'fase4')">Fase 4 — Statistika</button>
+    <button class="btn-fase" onclick="filterFaseKlik(this, 'fase5')">Fase 5 — Kelas 9</button>
+  </div>
+
+  <!-- ── FASE 1 ── -->
+  <div class="fase-section" id="sec-fase1">
+    <div class="fase-judul">
+      <span class="fase-judul-dot" style="background:var(--biru)"></span>
+      Fase 1 — Fondasi Bilangan &amp; Aljabar (Kelas 7)
+    </div>
+    <div class="bab-grid">
+      <div class="kartu-bab tersedia" onclick="navigasi('bab01')" data-fase="fase1" data-nama="Bilangan Bulat Pecahan FPB KPK">
+        <div class="bab-nomor">BAB 01</div>
+        <div class="bab-nama">Bilangan Bulat &amp; Pecahan</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-7">Kelas 7</span>
+          <span class="bab-badge-baru">✓ Tersedia</span>
+        </div>
+      </div>
+      <div class="kartu-bab tersedia" onclick="navigasi('bab02')" data-fase="fase1" data-nama="Himpunan diagram Venn irisan gabungan">
+        <div class="bab-nomor">BAB 02</div>
+        <div class="bab-nama">Himpunan</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-7">Kelas 7</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase1" data-nama="Bentuk Aljabar variabel koefisien operasi">
+        <div class="bab-nomor">BAB 03</div>
+        <div class="bab-nama">Bentuk Aljabar</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-7">Kelas 7</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase1" data-nama="Persamaan Pertidaksamaan Linear PLSV PtLSV">
+        <div class="bab-nomor">BAB 04</div>
+        <div class="bab-nama">Persamaan &amp; Pertidaksamaan Linear</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-7">Kelas 7</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase1" data-nama="Perbandingan senilai berbalik nilai skala">
+        <div class="bab-nomor">BAB 05</div>
+        <div class="bab-nama">Perbandingan</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-7">Kelas 7</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase1" data-nama="Aritmetika Sosial untung rugi diskon pajak bruto neto bunga">
+        <div class="bab-nomor">BAB 06</div>
+        <div class="bab-nama">Aritmetika Sosial</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-7">Kelas 7</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FASE 2 ── -->
+  <div class="fase-section" id="sec-fase2">
+    <div class="fase-judul">
+      <span class="fase-judul-dot" style="background:var(--hijau)"></span>
+      Fase 2 — Fungsi &amp; Koordinat (Kelas 8)
+    </div>
+    <div class="bab-grid">
+      <div class="kartu-bab segera" data-fase="fase2" data-nama="Koordinat Kartesius titik bidang kuadran">
+        <div class="bab-nomor">BAB 07</div>
+        <div class="bab-nama">Koordinat Kartesius</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-8">Kelas 8</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase2" data-nama="Pola Bilangan barisan geometri">
+        <div class="bab-nomor">BAB 08</div>
+        <div class="bab-nama">Pola Bilangan</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-8">Kelas 8</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase2" data-nama="Relasi Fungsi notasi nilai fungsi domain kodomain">
+        <div class="bab-nomor">BAB 09</div>
+        <div class="bab-nama">Relasi &amp; Fungsi</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-8">Kelas 8</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase2" data-nama="Persamaan Garis Lurus gradien PGL y=mx+c">
+        <div class="bab-nomor">BAB 10</div>
+        <div class="bab-nama">Persamaan Garis Lurus</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-8">Kelas 8</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase2" data-nama="SPLDV Sistem Persamaan Linear Dua Variabel substitusi eliminasi">
+        <div class="bab-nomor">BAB 11</div>
+        <div class="bab-nama">SPLDV</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-8">Kelas 8</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FASE 3 ── -->
+  <div class="fase-section" id="sec-fase3">
+    <div class="fase-judul">
+      <span class="fase-judul-dot" style="background:var(--teal)"></span>
+      Fase 3 — Geometri (Kelas 7–9)
+    </div>
+    <div class="bab-grid">
+      <div class="kartu-bab segera" data-fase="fase3" data-nama="Garis Sudut jenis sudut sejajar">
+        <div class="bab-nomor">BAB 12</div>
+        <div class="bab-nama">Garis &amp; Sudut</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-7">Kelas 7</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase3" data-nama="Bangun Datar segitiga segiempat luas keliling">
+        <div class="bab-nomor">BAB 13</div>
+        <div class="bab-nama">Bangun Datar</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-7">Kelas 7</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase3" data-nama="Teorema Pythagoras tripel hipotenusa">
+        <div class="bab-nomor">BAB 14</div>
+        <div class="bab-nama">Teorema Pythagoras</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-8">Kelas 8</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase3" data-nama="Lingkaran keliling luas jari-jari diameter busur">
+        <div class="bab-nomor">BAB 15</div>
+        <div class="bab-nama">Lingkaran</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-8">Kelas 8</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase3" data-nama="Bangun Ruang Sisi Datar kubus balok prisma limas volume">
+        <div class="bab-nomor">BAB 16</div>
+        <div class="bab-nama">Bangun Ruang Sisi Datar</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-8">Kelas 8</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase3" data-nama="Transformasi Geometri translasi refleksi rotasi dilatasi">
+        <div class="bab-nomor">BAB 17</div>
+        <div class="bab-nama">Transformasi Geometri</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-9">Kelas 9</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase3" data-nama="Kesebangunan Kekongruenan segitiga">
+        <div class="bab-nomor">BAB 18</div>
+        <div class="bab-nama">Kesebangunan &amp; Kekongruenan</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-9">Kelas 9</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase3" data-nama="Bangun Ruang Sisi Lengkung tabung kerucut bola">
+        <div class="bab-nomor">BAB 19</div>
+        <div class="bab-nama">Bangun Ruang Sisi Lengkung</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-9">Kelas 9</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FASE 4 ── -->
+  <div class="fase-section" id="sec-fase4">
+    <div class="fase-judul">
+      <span class="fase-judul-dot" style="background:var(--amber)"></span>
+      Fase 4 — Statistika &amp; Peluang (Kelas 7–9)
+    </div>
+    <div class="bab-grid">
+      <div class="kartu-bab segera" data-fase="fase4" data-nama="Penyajian Data tabel diagram batang garis lingkaran">
+        <div class="bab-nomor">BAB 20</div>
+        <div class="bab-nama">Penyajian Data</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-7">Kelas 7</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase4" data-nama="Statistika mean median modus rata-rata">
+        <div class="bab-nomor">BAB 21</div>
+        <div class="bab-nama">Statistika Dasar</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-8">Kelas 8</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase4" data-nama="Peluang Dasar ruang sampel kejadian frekuensi">
+        <div class="bab-nomor">BAB 22</div>
+        <div class="bab-nama">Peluang Dasar</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-8">Kelas 8</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase4" data-nama="Statistika Lanjut kuartil jangkauan simpangan ogive">
+        <div class="bab-nomor">BAB 23</div>
+        <div class="bab-nama">Statistika Lanjut</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-9">Kelas 9</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase4" data-nama="Peluang Lanjut kejadian majemuk komplemen gabungan">
+        <div class="bab-nomor">BAB 24</div>
+        <div class="bab-nama">Peluang Lanjut</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-9">Kelas 9</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FASE 5 ── -->
+  <div class="fase-section" id="sec-fase5">
+    <div class="fase-judul">
+      <span class="fase-judul-dot" style="background:var(--ungu)"></span>
+      Fase 5 — Kelas 9 Lanjut
+    </div>
+    <div class="bab-grid">
+      <div class="kartu-bab segera" data-fase="fase5" data-nama="Bilangan Berpangkat bentuk akar pangkat">
+        <div class="bab-nomor">BAB 25</div>
+        <div class="bab-nama">Bilangan Berpangkat &amp; Bentuk Akar</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-9">Kelas 9</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase5" data-nama="Persamaan Kuadrat faktorisasi rumus abc diskriminan">
+        <div class="bab-nomor">BAB 26</div>
+        <div class="bab-nama">Persamaan Kuadrat</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-9">Kelas 9</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+      <div class="kartu-bab segera" data-fase="fase5" data-nama="Fungsi Kuadrat parabola puncak sumbu simetri">
+        <div class="bab-nomor">BAB 27</div>
+        <div class="bab-nama">Fungsi Kuadrat</div>
+        <div class="bab-meta">
+          <span class="bab-kelas kls-9">Kelas 9</span>
+          <span class="bab-badge-segera">Segera hadir</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-home -->
+
+
+<!-- ████████████████████████████████████████████
+     BAB 01 — BILANGAN BULAT & PECAHAN
+     (KONTEN PENUH — CONTOH PERTAMA)
+████████████████████████████████████████████ -->
+<div id="page-bab01" class="page">
+  <div class="bab-layout">
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="sidebar-logo" onclick="navigasi('home')">
+        <div class="sidebar-logo-nama">📐 MathSMP</div>
+        <div class="sidebar-logo-sub">← Kembali ke Halaman Utama</div>
+      </div>
+
+      <div class="sidebar-bab-judul">Bab 01 · Navigasi</div>
+
+      <div class="nav-item aktif" onclick="gantiSeksi('dasar', this)">
+        <div class="nav-item-icon">🔢</div>
+        Konsep Dasar
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('pengembangan', this)">
+        <div class="nav-item-icon">📐</div>
+        Pengembangan
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('pendalaman', this)">
+        <div class="nav-item-icon">🧠</div>
+        Pendalaman
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('kuis', this)">
+        <div class="nav-item-icon">✏️</div>
+        Latihan Kuis
+      </div>
+
+      <div class="sidebar-progress">
+        <div class="sidebar-progress-label">
+          <span>Progress bab ini</span>
+          <span id="pct">25%</span>
+        </div>
+        <div class="sidebar-progress-bar">
+          <div class="sidebar-progress-fill" id="progFill"></div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Konten -->
+    <main class="bab-konten">
+      <div class="bab-header">
+        <div class="bab-header-breadcrumb">
+          <span onclick="navigasi('home')" style="cursor:pointer;color:var(--biru)">Beranda</span>
+          › <span>Fase 1</span> › <span>Bab 01</span>
+        </div>
+        <h1>Bilangan Bulat &amp; Pecahan</h1>
+        <div class="bab-header-meta">
+          <span class="bab-kelas kls-7">Kelas 7</span>
+          <span style="font-size:13px;color:var(--teks3)">Fase 1 — Fondasi</span>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 1: KONSEP DASAR ══ -->
+      <div id="seksi-dasar" class="seksi tampil">
+        <div class="level-banner banner-sd">⭐ Level: Konsep Dasar</div>
+
+        <div class="analogi">
+          <strong>🧃 Bayangkan kamu punya uang jajan.</strong> Kalau kamu punya Rp20.000 dan belanja Rp35.000, artinya kamu <em>kurang</em> Rp15.000 — ini yang disebut bilangan <strong>negatif</strong>. Bilangan bulat mencakup semua angka: yang positif (punya uang), nol (pas-pasan), dan negatif (hutang)!
+        </div>
+
+        <!-- Visualisasi Interaktif: Garis Bilangan -->
+        <div class="interaktif-wrap">
+          <h3>🎮 Garis Bilangan Interaktif</h3>
+          <p style="font-size:13px;color:var(--teks2);margin-bottom:14px">Geser slider untuk melihat posisi bilangan pada garis bilangan!</p>
+          <input type="range" min="-10" max="10" value="0" id="slider-garis" oninput="updateGaris(this.value)">
+          <div class="output-nilai" id="out-garis">0</div>
+          <svg id="svg-garis" viewBox="0 0 520 60" style="width:100%;max-width:520px;display:block;margin:0 auto">
+            <line x1="10" y1="30" x2="510" y2="30" stroke="var(--border2)" stroke-width="1.5"/>
+            <line x1="505" y1="24" x2="510" y2="30" stroke="var(--border2)" stroke-width="1.5"/>
+            <line x1="505" y1="36" x2="510" y2="30" stroke="var(--border2)" stroke-width="1.5"/>
+            <g id="garis-ticks"></g>
+            <circle id="garis-dot" cx="260" cy="30" r="8" fill="var(--biru)" opacity=".9"/>
+          </svg>
+          <p id="garis-ket" style="font-size:13px;color:var(--teks2);text-align:center;margin-top:6px">Bilangan 0 berada tepat di tengah garis bilangan.</p>
+        </div>
+
+        <div class="kartu">
+          <h2>Apa itu Bilangan Bulat?</h2>
+          <p style="font-size:14px;margin-bottom:12px;color:var(--teks2)">Bilangan bulat adalah semua bilangan yang tidak punya koma atau pecahan. Dibagi tiga kelompok besar:</p>
+          <div class="tabel-wrap">
+            <table class="sifat">
+              <thead><tr><th>Kelompok</th><th>Contoh</th><th>Analogi Nyata</th></tr></thead>
+              <tbody>
+                <tr><td>Bilangan Positif</td><td>1, 2, 3, 100 ...</td><td>Punya uang, naik lantai, suhu di atas 0°C</td></tr>
+                <tr><td>Nol (0)</td><td>0</td><td>Saldo rekening kosong</td></tr>
+                <tr><td>Bilangan Negatif</td><td>-1, -2, -3, -100 ...</td><td>Hutang, bawah tanah, suhu di bawah 0°C</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="info-box hati">
+          <div class="ikon">⚠️</div>
+          <div><strong>Jebakan umum:</strong> Saat mengalikan atau membagi bilangan negatif, tanda berubah! Negatif × Negatif = Positif. Banyak yang lupa ini dan salah hitung.</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('pengembangan', document.querySelectorAll('#page-bab01 .nav-item')[1])">Pengembangan →</button>
+        </div>
+      </div><!-- /seksi-dasar -->
+
+      <!-- ══ SEKSI 2: PENGEMBANGAN ══ -->
+      <div id="seksi-pengembangan" class="seksi">
+        <div class="level-banner banner-smp">📘 Level: Pengembangan</div>
+
+        <div class="kartu">
+          <h2>Operasi Bilangan Bulat</h2>
+
+          <div class="rumus">
+            Penjumlahan:   a + b = b + a (komutatif)<br>
+            Pengurangan:   a − b = a + (−b)<br>
+            Perkalian:     (+) × (+) = (+) | (−) × (−) = (+) | (+) × (−) = (−)<br>
+            Pembagian:     aturan tanda sama dengan perkalian
+          </div>
+
+          <!-- Soal 1 -->
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 1 — Mudah</div>
+            <p>Suhu di Puncak Jaya pagi hari −3°C. Siang hari naik 8°C. Berapa suhu siang hari?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol01a')">💡 Lihat Solusi</button>
+          <div id="sol01a" class="solusi">
+            <ol>
+              <li>Suhu awal = −3°C</li>
+              <li>Kenaikan = +8°C</li>
+              <li>Suhu siang = −3 + 8 = <strong>+5°C</strong></li>
+            </ol>
+            <div class="hasil">✓ Jawaban: 5°C</div>
+          </div>
+
+          <!-- Soal 2 -->
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 2 — Menengah</div>
+            <p>Hitung: (−4) × (−3) + 6 ÷ (−2)</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol01b')">💡 Lihat Solusi</button>
+          <div id="sol01b" class="solusi">
+            <ol>
+              <li>(−4) × (−3) = +12 <em>(negatif × negatif = positif)</em></li>
+              <li>6 ÷ (−2) = −3 <em>(positif ÷ negatif = negatif)</em></li>
+              <li>12 + (−3) = <strong>9</strong></li>
+            </ol>
+            <div class="hasil">✓ Jawaban: 9</div>
+          </div>
+
+          <!-- Soal 3 -->
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 3 — Agak Sulit</div>
+            <p>FPB dari 36 dan 48 adalah...</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol01c')">💡 Lihat Solusi</button>
+          <div id="sol01c" class="solusi">
+            <ol>
+              <li>Faktor 36: 1, 2, 3, 4, 6, <strong>9, 12, 18, 36</strong></li>
+              <li>Faktor 48: 1, 2, 3, 4, 6, 8, <strong>12, 16, 24, 48</strong></li>
+              <li>Faktor persekutuan: 1, 2, 3, 4, 6, 12</li>
+              <li>Faktor persekutuan terbesar (FPB) = <strong>12</strong></li>
+            </ol>
+            <div class="hasil">✓ FPB(36, 48) = 12</div>
+          </div>
+        </div>
+
+        <div class="kartu">
+          <h2>Pecahan, Desimal &amp; Persen</h2>
+          <div class="rumus">
+            Pecahan → Desimal: bagi pembilang dengan penyebut<br>
+            Desimal → Persen:  kalikan dengan 100<br>
+            Persen → Pecahan:  bagi dengan 100, sederhanakan
+          </div>
+
+          <div class="tabel-wrap">
+            <table class="sifat">
+              <thead><tr><th>Pecahan</th><th>Desimal</th><th>Persen</th></tr></thead>
+              <tbody>
+                <tr><td>1/2</td><td>0,5</td><td>50%</td></tr>
+                <tr><td>1/4</td><td>0,25</td><td>25%</td></tr>
+                <tr><td>3/4</td><td>0,75</td><td>75%</td></tr>
+                <tr><td>1/5</td><td>0,2</td><td>20%</td></tr>
+                <tr><td>2/3</td><td>0,666...</td><td>66,7%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('dasar', document.querySelectorAll('#page-bab01 .nav-item')[0])">← Konsep Dasar</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('pendalaman', document.querySelectorAll('#page-bab01 .nav-item')[2])">Pendalaman →</button>
+        </div>
+      </div><!-- /seksi-pengembangan -->
+
+      <!-- ══ SEKSI 3: PENDALAMAN ══ -->
+      <div id="seksi-pendalaman" class="seksi">
+        <div class="level-banner banner-sma">🚀 Level: Pendalaman</div>
+
+        <div class="kartu">
+          <h2>FPB &amp; KPK — Kapan Dipakai?</h2>
+          <div class="analogi">
+            <strong>🎁 Kapan pakai FPB?</strong> Saat kamu ingin <em>membagi rata</em> sesuatu. Misalnya: 36 buku dan 48 pensil mau dibagi ke kelompok, tiap kelompok dapat jumlah sama. Jawabannya: FPB(36, 48) = 12 kelompok!<br><br>
+            <strong>📅 Kapan pakai KPK?</strong> Saat kamu ingin tahu kapan dua hal <em>bertemu lagi di waktu yang sama</em>. Bus A lewat tiap 6 menit, Bus B tiap 9 menit. Kapan keduanya berangkat bareng lagi? KPK(6, 9) = 18 menit!
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Soal Aplikasi 1</div>
+            <p>Andi belanja setiap 6 hari, Budi setiap 8 hari. Hari ini mereka belanja bersama. Berapa hari lagi mereka belanja bersama lagi?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol01d')">💡 Lihat Solusi</button>
+          <div id="sol01d" class="solusi">
+            <ol>
+              <li>Kelipatan 6: 6, 12, 18, <strong>24</strong>, 30...</li>
+              <li>Kelipatan 8: 8, 16, <strong>24</strong>, 32...</li>
+              <li>KPK(6, 8) = 24</li>
+            </ol>
+            <div class="hasil">✓ Mereka akan belanja bersama lagi 24 hari kemudian.</div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Soal Aplikasi 2</div>
+            <p>Seorang pedagang membeli 2/3 kg gula dan 3/4 kg tepung. Berapa total belanjaannya?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol01e')">💡 Lihat Solusi</button>
+          <div id="sol01e" class="solusi">
+            <ol>
+              <li>Samakan penyebut: KPK(3, 4) = 12</li>
+              <li>2/3 = 8/12 dan 3/4 = 9/12</li>
+              <li>8/12 + 9/12 = 17/12 = 1 5/12 kg</li>
+            </ol>
+            <div class="hasil">✓ Total = 1 5/12 kg ≈ 1,417 kg</div>
+          </div>
+        </div>
+
+        <div class="info-box tips">
+          <div class="ikon">💡</div>
+          <div><strong>Hubungan ke bab berikutnya:</strong> Konsep FPB dan KPK akan dipakai lagi di Bab 3 (Bentuk Aljabar) saat menyederhanakan pecahan aljabar, dan di Bab 5 (Perbandingan) saat mencari nilai yang sebanding.</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('pengembangan', document.querySelectorAll('#page-bab01 .nav-item')[1])">← Pengembangan</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('kuis', document.querySelectorAll('#page-bab01 .nav-item')[3])">Latihan Kuis →</button>
+        </div>
+      </div><!-- /seksi-pendalaman -->
+
+      <!-- ══ SEKSI 4: KUIS ══ -->
+      <div id="seksi-kuis" class="seksi">
+        <div class="level-banner banner-smp">✏️ Latihan Kuis</div>
+
+        <div class="kartu">
+          <div class="kuis-label">Kuis 1 dari 2</div>
+          <div class="kuis-soal">Hasil dari (−5) × 4 + (−3) × (−6) adalah...</div>
+          <div class="kuis-opsi">
+            <button class="opsi" onclick="jawab(this, false, 'k1')">A. −38</button>
+            <button class="opsi" onclick="jawab(this, false, 'k1')">B. 38</button>
+            <button class="opsi" onclick="jawab(this, true,  'k1')">C. −2</button>
+            <button class="opsi" onclick="jawab(this, false, 'k1')">D. 2</button>
+          </div>
+          <div id="k1-fb" class="kuis-fb"></div>
+          <div class="kuis-pembahasan">
+            <strong>Pembahasan:</strong><br>
+            Langkah 1: (−5) × 4 = −20<br>
+            Langkah 2: (−3) × (−6) = +18 (negatif × negatif = positif)<br>
+            Langkah 3: −20 + 18 = <strong>−2</strong><br>
+            Pilihan C adalah jawaban yang benar.
+          </div>
+        </div>
+
+        <div class="kartu">
+          <div class="kuis-label">Kuis 2 dari 2</div>
+          <div class="kuis-soal">KPK dari 12 dan 18 adalah...</div>
+          <div class="kuis-opsi">
+            <button class="opsi" onclick="jawab(this, false, 'k2')">A. 6</button>
+            <button class="opsi" onclick="jawab(this, false, 'k2')">B. 24</button>
+            <button class="opsi" onclick="jawab(this, true,  'k2')">C. 36</button>
+            <button class="opsi" onclick="jawab(this, false, 'k2')">D. 72</button>
+          </div>
+          <div id="k2-fb" class="kuis-fb"></div>
+          <div class="kuis-pembahasan">
+            <strong>Pembahasan:</strong><br>
+            Kelipatan 12: 12, 24, <strong>36</strong>, 48...<br>
+            Kelipatan 18: 18, <strong>36</strong>, 54...<br>
+            Kelipatan Persekutuan Terkecil (KPK) = <strong>36</strong><br>
+            Catatan: Jawaban A (6) adalah FPB, bukan KPK — jangan tertukar!
+          </div>
+        </div>
+
+        <div class="info-box sukses">
+          <div class="ikon">🎉</div>
+          <div><strong>Selesai!</strong> Kamu sudah menyelesaikan seluruh materi Bab 01. Lanjut ke bab berikutnya yuk!</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('pendalaman', document.querySelectorAll('#page-bab01 .nav-item')[2])">← Pendalaman</button>
+          <button class="btn-nav primer" onclick="navigasi('bab02')">Bab 02: Himpunan →</button>
+        </div>
+      </div><!-- /seksi-kuis -->
+
+    </main>
+  </div>
+</div><!-- /page-bab01 -->
+
+
+<!-- ████████████████████████████████████████████
+     BAB 02 — HIMPUNAN
+████████████████████████████████████████████ -->
+<div id="page-bab02" class="page">
+  <div class="bab-layout">
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="sidebar-logo" onclick="navigasi('home')">
+        <div class="sidebar-logo-nama">📐 MathSMP</div>
+        <div class="sidebar-logo-sub">← Kembali ke Halaman Utama</div>
+      </div>
+      <div class="sidebar-bab-judul">Bab 02 · Navigasi</div>
+      <div class="nav-item aktif" onclick="gantiSeksi('dasar', this)">
+        <div class="nav-item-icon">🫧</div>
+        Konsep Dasar
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('pengembangan', this)">
+        <div class="nav-item-icon">📐</div>
+        Pengembangan
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('pendalaman', this)">
+        <div class="nav-item-icon">🧠</div>
+        Pendalaman
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('kuis', this)">
+        <div class="nav-item-icon">✏️</div>
+        Latihan Kuis
+      </div>
+      <div class="sidebar-progress">
+        <div class="sidebar-progress-label">
+          <span>Progress bab ini</span>
+          <span id="pct">25%</span>
+        </div>
+        <div class="sidebar-progress-bar">
+          <div class="sidebar-progress-fill" id="progFill"></div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Konten -->
+    <main class="bab-konten">
+      <div class="bab-header">
+        <div class="bab-header-breadcrumb">
+          <span onclick="navigasi('home')" style="cursor:pointer;color:var(--biru)">Beranda</span>
+          › <span>Fase 1</span> › <span>Bab 02</span>
+        </div>
+        <h1>Himpunan</h1>
+        <div class="bab-header-meta">
+          <span class="bab-kelas kls-7">Kelas 7</span>
+          <span style="font-size:13px;color:var(--teks3)">Fase 1 — Fondasi</span>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 1: KONSEP DASAR ══ -->
+      <div id="seksi-dasar" class="seksi tampil">
+        <div class="level-banner banner-sd">⭐ Level: Konsep Dasar</div>
+
+        <div class="analogi">
+          <strong>🎒 Bayangkan tas sekolah kamu.</strong> Di dalamnya ada buku, pensil, penggaris, dan penghapus. Isi tas itu adalah sebuah <em>himpunan</em> — kumpulan benda-benda yang jelas dan punya aturan keanggotaan. Kalau ditanya "apakah HP ada di tas?", kamu bisa jawab ya atau tidak dengan pasti. Itulah sifat utama himpunan: setiap anggotanya <strong>jelas dan pasti</strong>!
+        </div>
+
+        <!-- Visualisasi Interaktif: Diagram Venn dinamis -->
+        <div class="interaktif-wrap">
+          <h3>🎮 Diagram Venn Interaktif</h3>
+          <p style="font-size:13px;color:var(--teks2);margin-bottom:14px">Klik anggota himpunan untuk memindahkannya ke irisan (A ∩ B)!</p>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px">
+            <div style="flex:1;min-width:200px">
+              <div style="font-size:12px;font-weight:700;color:var(--biru-teks);margin-bottom:6px">Himpunan A — Bilangan Ganjil 1–10</div>
+              <div id="anggota-A" style="display:flex;flex-wrap:wrap;gap:6px">
+                <span class="angg-chip angg-A" data-val="1" onclick="pindahIrisan(this)">1</span>
+                <span class="angg-chip angg-A" data-val="3" onclick="pindahIrisan(this)">3</span>
+                <span class="angg-chip angg-A" data-val="5" onclick="pindahIrisan(this)">5</span>
+                <span class="angg-chip angg-A" data-val="7" onclick="pindahIrisan(this)">7</span>
+                <span class="angg-chip angg-A" data-val="9" onclick="pindahIrisan(this)">9</span>
+              </div>
+            </div>
+            <div style="flex:1;min-width:200px">
+              <div style="font-size:12px;font-weight:700;color:var(--hijau-teks);margin-bottom:6px">Himpunan B — Bilangan Prima ≤ 10</div>
+              <div id="anggota-B" style="display:flex;flex-wrap:wrap;gap:6px">
+                <span class="angg-chip angg-B" data-val="2" onclick="pindahIrisan(this)">2</span>
+                <span class="angg-chip angg-B" data-val="3" onclick="pindahIrisan(this)">3</span>
+                <span class="angg-chip angg-B" data-val="5" onclick="pindahIrisan(this)">5</span>
+                <span class="angg-chip angg-B" data-val="7" onclick="pindahIrisan(this)">7</span>
+              </div>
+            </div>
+          </div>
+
+          <svg id="svg-venn" viewBox="0 0 420 180" style="width:100%;max-width:420px;display:block;margin:0 auto 10px">
+            <!-- Lingkaran A -->
+            <circle cx="145" cy="90" r="75" fill="var(--biru-muda)" stroke="var(--biru)" stroke-width="2" opacity="0.7"/>
+            <!-- Lingkaran B -->
+            <circle cx="275" cy="90" r="75" fill="var(--hijau-muda)" stroke="var(--hijau)" stroke-width="2" opacity="0.7"/>
+            <!-- Label -->
+            <text x="95" y="60" text-anchor="middle" font-size="14" font-weight="700" fill="var(--biru-teks)">A</text>
+            <text x="325" y="60" text-anchor="middle" font-size="14" font-weight="700" fill="var(--hijau-teks)">B</text>
+            <text x="210" y="28" text-anchor="middle" font-size="11" fill="var(--teks3)">A ∩ B</text>
+            <!-- Anggota A only -->
+            <text id="vA1" x="88" y="88" text-anchor="middle" font-size="13" font-weight="600" fill="var(--biru-teks)">1</text>
+            <text id="vA2" x="108" y="110" text-anchor="middle" font-size="13" font-weight="600" fill="var(--biru-teks)">9</text>
+            <!-- Anggota irisan A∩B -->
+            <text id="vAB1" x="193" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="var(--teal-teks)">3</text>
+            <text id="vAB2" x="210" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="var(--teal-teks)">5</text>
+            <text id="vAB3" x="227" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="var(--teal-teks)">7</text>
+            <!-- Anggota B only -->
+            <text id="vB1" x="322" y="95" text-anchor="middle" font-size="13" font-weight="600" fill="var(--hijau-teks)">2</text>
+          </svg>
+
+          <div id="venn-info" style="font-size:13px;color:var(--teks2);text-align:center;background:var(--bg3);padding:8px 12px;border-radius:8px">
+            A ∩ B = {3, 5, 7} &nbsp;|&nbsp; A ∪ B = {1, 2, 3, 5, 7, 9} &nbsp;|&nbsp; n(A) = 5, n(B) = 4
+          </div>
+        </div>
+
+        <style>
+        .angg-chip {
+          padding: 5px 12px;
+          border-radius: 20px;
+          font-size: 13px;
+          font-weight: 700;
+          cursor: pointer;
+          transition: all .15s;
+          user-select: none;
+          border: 1.5px solid transparent;
+        }
+        .angg-A { background: var(--biru-muda); color: var(--biru-teks); border-color: rgba(24,95,165,0.25); }
+        .angg-B { background: var(--hijau-muda); color: var(--hijau-teks); border-color: rgba(59,109,17,0.25); }
+        .angg-AB { background: var(--teal-muda); color: var(--teal-teks); border-color: var(--teal); }
+        .angg-chip:hover { transform: scale(1.1); }
+        </style>
+
+        <div class="kartu">
+          <h2>Apa itu Himpunan?</h2>
+          <p style="font-size:14px;color:var(--teks2);margin-bottom:14px">Himpunan adalah <strong>kumpulan objek yang terdefinisi dengan jelas</strong>. Setiap objek dalam himpunan disebut <strong>anggota</strong> atau <strong>elemen</strong>.</p>
+          <div class="tabel-wrap">
+            <table class="sifat">
+              <thead><tr><th>Istilah</th><th>Simbol</th><th>Contoh</th></tr></thead>
+              <tbody>
+                <tr><td>Himpunan</td><td>A, B, C (huruf kapital)</td><td>A = {1, 2, 3}</td></tr>
+                <tr><td>Anggota</td><td>∈ (adalah anggota)</td><td>2 ∈ A</td></tr>
+                <tr><td>Bukan anggota</td><td>∉</td><td>5 ∉ A</td></tr>
+                <tr><td>Himpunan kosong</td><td>∅ atau {}</td><td>Bilangan prima genap selain 2: ∅</td></tr>
+                <tr><td>Banyak anggota</td><td>n(A)</td><td>n({1,2,3}) = 3</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="info-box info">
+          <div class="ikon">ℹ️</div>
+          <div><strong>Cara penulisan himpunan ada 3:</strong> (1) <em>Mendaftar anggota</em>: A = {1, 2, 3} — (2) <em>Menentukan sifat</em>: A = {x | x bilangan asli kurang dari 4} — (3) <em>Notasi pembentuk</em>: dipakai di kelas lanjut.</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="navigasi('bab01')">← Bab 01</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('pengembangan', document.querySelectorAll('#page-bab02 .nav-item')[1])">Pengembangan →</button>
+        </div>
+      </div><!-- /seksi-dasar -->
+
+      <!-- ══ SEKSI 2: PENGEMBANGAN ══ -->
+      <div id="seksi-pengembangan" class="seksi">
+        <div class="level-banner banner-smp">📘 Level: Pengembangan</div>
+
+        <div class="kartu">
+          <h2>Operasi pada Himpunan</h2>
+          <div class="rumus">
+            Irisan    : A ∩ B = anggota yang ada di A DAN di B<br>
+            Gabungan  : A ∪ B = anggota yang ada di A ATAU di B (atau keduanya)<br>
+            Komplemen : Aᶜ   = anggota semesta yang TIDAK ada di A<br>
+            Selisih   : A \ B = anggota A yang TIDAK ada di B
+          </div>
+
+          <div class="tabel-wrap">
+            <table class="sifat">
+              <thead><tr><th>Operasi</th><th>Simbol</th><th>Kata Kunci</th><th>Contoh (A={1,2,3}, B={2,3,4})</th></tr></thead>
+              <tbody>
+                <tr><td>Irisan</td><td>∩</td><td>DAN / keduanya</td><td>A ∩ B = {2, 3}</td></tr>
+                <tr><td>Gabungan</td><td>∪</td><td>ATAU / salah satu</td><td>A ∪ B = {1, 2, 3, 4}</td></tr>
+                <tr><td>Komplemen</td><td>Aᶜ</td><td>BUKAN / di luar</td><td>Aᶜ = {4, 5, ...} (tergantung semesta)</td></tr>
+                <tr><td>Selisih</td><td>A \ B</td><td>di A, tapi tidak di B</td><td>A \ B = {1}</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Soal 1 -->
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 1 — Mudah</div>
+            <p>Diketahui A = {2, 4, 6, 8} dan B = {1, 2, 3, 4}. Tentukan A ∩ B dan A ∪ B!</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol02a')">💡 Lihat Solusi</button>
+          <div id="sol02a" class="solusi">
+            <ol>
+              <li><strong>A ∩ B</strong> = anggota yang ada di A dan B sekaligus = {2, 4}</li>
+              <li><strong>A ∪ B</strong> = semua anggota di A atau B (tanpa duplikat) = {1, 2, 3, 4, 6, 8}</li>
+            </ol>
+            <div class="hasil">✓ A ∩ B = {2, 4} &nbsp;&nbsp; A ∪ B = {1, 2, 3, 4, 6, 8}</div>
+          </div>
+
+          <!-- Soal 2 -->
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 2 — Menengah</div>
+            <p>Semesta S = {1, 2, 3, 4, 5, 6, 7, 8}. A = {1, 3, 5, 7}. Tentukan Aᶜ (komplemen A)!</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol02b')">💡 Lihat Solusi</button>
+          <div id="sol02b" class="solusi">
+            <ol>
+              <li>Semesta S = {1, 2, 3, 4, 5, 6, 7, 8}</li>
+              <li>Anggota A = {1, 3, 5, 7}</li>
+              <li>Aᶜ = semua anggota S yang TIDAK ada di A</li>
+              <li>Aᶜ = {2, 4, 6, 8}</li>
+            </ol>
+            <div class="hasil">✓ Aᶜ = {2, 4, 6, 8}</div>
+          </div>
+
+          <!-- Soal 3 -->
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 3 — Agak Sulit</div>
+            <p>Di kelas 7A, 20 siswa suka basket, 15 siswa suka voli, dan 8 siswa suka keduanya. Berapa siswa yang suka basket ATAU voli?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol02c')">💡 Lihat Solusi</button>
+          <div id="sol02c" class="solusi">
+            <ol>
+              <li>n(B) = 20, n(V) = 15, n(B ∩ V) = 8</li>
+              <li>Pakai rumus: n(B ∪ V) = n(B) + n(V) − n(B ∩ V)</li>
+              <li>n(B ∪ V) = 20 + 15 − 8 = <strong>27 siswa</strong></li>
+            </ol>
+            <div class="hasil">✓ 27 siswa suka basket atau voli (atau keduanya)</div>
+          </div>
+        </div>
+
+        <div class="info-box hati">
+          <div class="ikon">⚠️</div>
+          <div><strong>Rumus wajib hafal:</strong> n(A ∪ B) = n(A) + n(B) − n(A ∩ B). Kalau tidak dikurangi irisan, anggota yang ada di keduanya akan dihitung dua kali!</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('dasar', document.querySelectorAll('#page-bab02 .nav-item')[0])">← Konsep Dasar</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('pendalaman', document.querySelectorAll('#page-bab02 .nav-item')[2])">Pendalaman →</button>
+        </div>
+      </div><!-- /seksi-pengembangan -->
+
+      <!-- ══ SEKSI 3: PENDALAMAN ══ -->
+      <div id="seksi-pendalaman" class="seksi">
+        <div class="level-banner banner-sma">🚀 Level: Pendalaman</div>
+
+        <div class="kartu">
+          <h2>Diagram Venn &amp; Soal Cerita Kompleks</h2>
+
+          <div class="analogi">
+            <strong>🗳️ Strategi diagram Venn untuk soal cerita:</strong><br>
+            1. Gambar dua (atau tiga) lingkaran yang saling tumpang tindih.<br>
+            2. Isi bagian <em>irisan tengah dulu</em> (yang diketahui).<br>
+            3. Hitung bagian masing-masing sisi (kurangi irisan dari total).<br>
+            4. Cek total: semua bagian harus menjumlahkan ke total seluruh anggota.
+          </div>
+
+          <!-- Kalkulator Diagram Venn Interaktif -->
+          <div class="interaktif-wrap" style="margin-top:0">
+            <h3>🧮 Kalkulator Himpunan Dua Kelompok</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+              <div>
+                <label style="font-size:12px;color:var(--teks2)">n(A) — jumlah anggota A</label>
+                <input type="number" id="inp-nA" value="20" min="0" oninput="hitungVenn()" style="width:100%;padding:8px 10px;border:1.5px solid var(--border2);border-radius:8px;font-size:15px;font-weight:700;color:var(--biru-teks);background:var(--biru-muda);margin-top:4px">
+              </div>
+              <div>
+                <label style="font-size:12px;color:var(--teks2)">n(B) — jumlah anggota B</label>
+                <input type="number" id="inp-nB" value="15" min="0" oninput="hitungVenn()" style="width:100%;padding:8px 10px;border:1.5px solid var(--border2);border-radius:8px;font-size:15px;font-weight:700;color:var(--hijau-teks);background:var(--hijau-muda);margin-top:4px">
+              </div>
+              <div>
+                <label style="font-size:12px;color:var(--teks2)">n(A ∩ B) — keduanya</label>
+                <input type="number" id="inp-nAB" value="8" min="0" oninput="hitungVenn()" style="width:100%;padding:8px 10px;border:1.5px solid var(--border2);border-radius:8px;font-size:15px;font-weight:700;color:var(--teal-teks);background:var(--teal-muda);margin-top:4px">
+              </div>
+              <div>
+                <label style="font-size:12px;color:var(--teks2)">n(S) — total semesta (opsional)</label>
+                <input type="number" id="inp-nS" value="40" min="0" oninput="hitungVenn()" style="width:100%;padding:8px 10px;border:1.5px solid var(--border2);border-radius:8px;font-size:15px;font-weight:700;color:var(--teks2);background:var(--bg3);margin-top:4px">
+              </div>
+            </div>
+            <div id="hasil-venn" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px;font-size:14px;line-height:2"></div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Soal Aplikasi 1 — Tiga Himpunan</div>
+            <p>Survei 50 siswa: 30 suka K-pop, 25 suka anime, 20 suka gaming. 12 suka K-pop & anime, 10 suka K-pop & gaming, 8 suka anime & gaming, dan 5 suka ketiganya. Berapa siswa yang tidak suka satupun?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol02d')">💡 Lihat Solusi</button>
+          <div id="sol02d" class="solusi">
+            <ol>
+              <li>Gunakan rumus tiga himpunan:<br>n(K ∪ A ∪ G) = n(K) + n(A) + n(G) − n(K∩A) − n(K∩G) − n(A∩G) + n(K∩A∩G)</li>
+              <li>= 30 + 25 + 20 − 12 − 10 − 8 + 5 = <strong>50</strong></li>
+              <li>Siswa yang suka setidaknya satu = 50</li>
+              <li>Total siswa = 50 → yang tidak suka satupun = 50 − 50 = <strong>0 siswa</strong></li>
+            </ol>
+            <div class="hasil">✓ Tidak ada siswa yang tidak suka satupun dari ketiga kategori.</div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Soal Aplikasi 2</div>
+            <p>Dari 35 anggota OSIS: 18 bisa desain, 22 bisa edit video, dan semua bisa minimal satu. Berapa yang bisa keduanya?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol02e')">💡 Lihat Solusi</button>
+          <div id="sol02e" class="solusi">
+            <ol>
+              <li>n(D ∪ V) = n(S) = 35 (semua bisa minimal satu)</li>
+              <li>n(D ∪ V) = n(D) + n(V) − n(D ∩ V)</li>
+              <li>35 = 18 + 22 − n(D ∩ V)</li>
+              <li>n(D ∩ V) = 40 − 35 = <strong>5 orang</strong></li>
+            </ol>
+            <div class="hasil">✓ 5 orang bisa desain sekaligus edit video.</div>
+          </div>
+        </div>
+
+        <div class="info-box tips">
+          <div class="ikon">💡</div>
+          <div><strong>Koneksi ke Bab 22 (Peluang Dasar):</strong> Himpunan adalah fondasi peluang! Ruang sampel, kejadian, dan komplemen kejadian semuanya menggunakan konsep himpunan ini.</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('pengembangan', document.querySelectorAll('#page-bab02 .nav-item')[1])">← Pengembangan</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('kuis', document.querySelectorAll('#page-bab02 .nav-item')[3])">Latihan Kuis →</button>
+        </div>
+      </div><!-- /seksi-pendalaman -->
+
+      <!-- ══ SEKSI 4: KUIS ══ -->
+      <div id="seksi-kuis" class="seksi">
+        <div class="level-banner banner-smp">✏️ Latihan Kuis</div>
+
+        <div class="kartu">
+          <div class="kuis-label">Kuis 1 dari 2</div>
+          <div class="kuis-soal">Diketahui A = {1, 2, 3, 4, 5} dan B = {3, 4, 5, 6, 7}. Nilai n(A ∪ B) adalah...</div>
+          <div class="kuis-opsi">
+            <button class="opsi" onclick="jawab(this, false, 'k2q1')">A. 3</button>
+            <button class="opsi" onclick="jawab(this, false, 'k2q1')">B. 5</button>
+            <button class="opsi" onclick="jawab(this, true,  'k2q1')">C. 7</button>
+            <button class="opsi" onclick="jawab(this, false, 'k2q1')">D. 10</button>
+          </div>
+          <div id="k2q1-fb" class="kuis-fb"></div>
+          <div class="kuis-pembahasan">
+            <strong>Pembahasan:</strong><br>
+            A ∪ B = {1, 2, 3, 4, 5, 6, 7} → n(A ∪ B) = <strong>7</strong><br>
+            Cara cepat: n(A ∪ B) = n(A) + n(B) − n(A ∩ B) = 5 + 5 − 3 = 7<br>
+            Pilihan D (10) salah karena itu n(A) + n(B) tanpa dikurangi irisan — jebakan umum!
+          </div>
+        </div>
+
+        <div class="kartu">
+          <div class="kuis-label">Kuis 2 dari 2</div>
+          <div class="kuis-soal">Dari 40 siswa: 25 suka matematika, 20 suka IPA, dan 10 suka keduanya. Berapa siswa yang tidak suka keduanya?</div>
+          <div class="kuis-opsi">
+            <button class="opsi" onclick="jawab(this, false, 'k2q2')">A. 5 siswa</button>
+            <button class="opsi" onclick="jawab(this, true,  'k2q2')">B. 5 siswa... tunggu, hitung dulu!</button>
+            <button class="opsi" onclick="jawab(this, false, 'k2q2')">C. 10 siswa</button>
+            <button class="opsi" onclick="jawab(this, false, 'k2q2')">D. 15 siswa</button>
+          </div>
+          <div id="k2q2-fb" class="kuis-fb"></div>
+          <div class="kuis-pembahasan">
+            <strong>Pembahasan:</strong><br>
+            n(M ∪ I) = n(M) + n(I) − n(M ∩ I) = 25 + 20 − 10 = <strong>35 siswa</strong><br>
+            Yang suka salah satu atau keduanya = 35<br>
+            Yang tidak suka keduanya = 40 − 35 = <strong>5 siswa</strong>
+          </div>
+        </div>
+
+        <div class="info-box sukses">
+          <div class="ikon">🎉</div>
+          <div><strong>Keren!</strong> Kamu sudah kuasai Bab 02 — Himpunan. Selanjutnya kita akan ketemu lagi konsep ini di Bab 22 (Peluang)!</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('pendalaman', document.querySelectorAll('#page-bab02 .nav-item')[2])">← Pendalaman</button>
+          <button class="btn-nav primer" onclick="navigasi('bab03')">Bab 03: Bentuk Aljabar →</button>
+        </div>
+      </div><!-- /seksi-kuis -->
+
+    </main>
+  </div>
+</div><!-- /page-bab02 -->
+
+
+<!-- ████████████████████████████████████████████
+     BAB 03–27 — PLACEHOLDER
+████████████████████████████████████████████ -->
+
+<!-- Template placeholder untuk bab belum selesai -->
+<script>
+
+// Interaksi chip Diagram Venn Bab 02
+function pindahIrisan(chip) {
+  const val = chip.dataset.val;
+  chip.classList.toggle('angg-AB');
+  const inIrisan = chip.classList.contains('angg-AB');
+  if (inIrisan) {
+    chip.classList.remove('angg-A', 'angg-B');
+    chip.title = 'Klik lagi untuk kembalikan';
+  } else {
+    // restore original
+    const isA = [1,3,5,7,9].includes(parseInt(val));
+    const isB = [2,3,5,7].includes(parseInt(val));
+    if (isA && isB) chip.classList.add('angg-AB');
+    else if (isA) chip.classList.add('angg-A');
+    else chip.classList.add('angg-B');
+  }
+}
+
+// Kalkulator Venn Bab 02
+function hitungVenn() {
+  const nA  = parseInt(document.getElementById('inp-nA')?.value)  || 0;
+  const nB  = parseInt(document.getElementById('inp-nB')?.value)  || 0;
+  const nAB = parseInt(document.getElementById('inp-nAB')?.value) || 0;
+  const nS  = parseInt(document.getElementById('inp-nS')?.value)  || 0;
+  const gabungan  = nA + nB - nAB;
+  const aOnly     = nA - nAB;
+  const bOnly     = nB - nAB;
+  const diluar    = nS > 0 ? Math.max(0, nS - gabungan) : '—';
+  const el = document.getElementById('hasil-venn');
+  if (!el) return;
+  el.innerHTML =
+    `<span style="color:var(--teal-teks)">n(A ∩ B)</span> = ${nAB} &nbsp;|&nbsp; `+
+    `<span style="color:var(--biru-teks)">n(A ∪ B)</span> = <strong>${gabungan}</strong><br>`+
+    `Hanya di A = ${aOnly} &nbsp;|&nbsp; Hanya di B = ${bOnly}`+
+    (nS > 0 ? ` &nbsp;|&nbsp; Di luar A dan B = <strong>${diluar}</strong>` : '');
+}
+hitungVenn();
+
+// Buat placeholder untuk bab 03–27
+const babPlaceholder = [
+  {id:'bab03', nama:'Bentuk Aljabar', prev:'bab02', next:'bab04'},
+  {id:'bab03', nama:'Bentuk Aljabar', prev:'bab02', next:'bab04'},
+  {id:'bab04', nama:'Persamaan & Pertidaksamaan Linear', prev:'bab03', next:'bab05'},
+  {id:'bab05', nama:'Perbandingan', prev:'bab04', next:'bab06'},
+  {id:'bab06', nama:'Aritmetika Sosial', prev:'bab05', next:'bab07'},
+  {id:'bab07', nama:'Koordinat Kartesius', prev:'bab06', next:'bab08'},
+  {id:'bab08', nama:'Pola Bilangan', prev:'bab07', next:'bab09'},
+  {id:'bab09', nama:'Relasi & Fungsi', prev:'bab08', next:'bab10'},
+  {id:'bab10', nama:'Persamaan Garis Lurus', prev:'bab09', next:'bab11'},
+  {id:'bab11', nama:'SPLDV', prev:'bab10', next:'bab12'},
+  {id:'bab12', nama:'Garis & Sudut', prev:'bab11', next:'bab13'},
+  {id:'bab13', nama:'Bangun Datar', prev:'bab12', next:'bab14'},
+  {id:'bab14', nama:'Teorema Pythagoras', prev:'bab13', next:'bab15'},
+  {id:'bab15', nama:'Lingkaran', prev:'bab14', next:'bab16'},
+  {id:'bab16', nama:'Bangun Ruang Sisi Datar', prev:'bab15', next:'bab17'},
+  {id:'bab17', nama:'Transformasi Geometri', prev:'bab16', next:'bab18'},
+  {id:'bab18', nama:'Kesebangunan & Kekongruenan', prev:'bab17', next:'bab19'},
+  {id:'bab19', nama:'Bangun Ruang Sisi Lengkung', prev:'bab18', next:'bab20'},
+  {id:'bab20', nama:'Penyajian Data', prev:'bab19', next:'bab21'},
+  {id:'bab21', nama:'Statistika Dasar', prev:'bab20', next:'bab22'},
+  {id:'bab22', nama:'Peluang Dasar', prev:'bab21', next:'bab23'},
+  {id:'bab23', nama:'Statistika Lanjut', prev:'bab22', next:'bab24'},
+  {id:'bab24', nama:'Peluang Lanjut', prev:'bab23', next:'bab25'},
+  {id:'bab25', nama:'Bilangan Berpangkat & Bentuk Akar', prev:'bab24', next:'bab26'},
+  {id:'bab26', nama:'Persamaan Kuadrat', prev:'bab25', next:'bab27'},
+  {id:'bab27', nama:'Fungsi Kuadrat', prev:'bab26', next:null},
+];
+
+babPlaceholder.forEach(b => {
+  const div = document.createElement('div');
+  div.id = 'page-' + b.id;
+  div.className = 'page';
+  div.innerHTML = `
+    <div class="bab-layout">
+      <nav class="sidebar">
+        <div class="sidebar-logo" onclick="navigasi('home')">
+          <div class="sidebar-logo-nama">📐 MathSMP</div>
+          <div class="sidebar-logo-sub">← Kembali ke Halaman Utama</div>
+        </div>
+        <div style="padding:20px;color:var(--teks3);font-size:13px">Konten bab ini sedang dalam pengerjaan.</div>
+      </nav>
+      <main class="bab-konten">
+        <div class="placeholder-konten">
+          <div class="placeholder-ikon">🔧</div>
+          <h2>${b.nama}</h2>
+          <p>Bab ini sedang kami siapkan dengan penuh semangat! Nantikan konten interaktifnya ya.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+            <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+            ${b.prev ? `<button class="btn-nav" onclick="navigasi('${b.prev}')">← Bab Sebelumnya</button>` : ''}
+            ${b.next ? `<button class="btn-nav primer" onclick="navigasi('${b.next}')">Bab Berikutnya →</button>` : ''}
+          </div>
+        </div>
+      </main>
+    </div>`;
+  document.body.appendChild(div);
+});
+</script>
+
+
+<!-- ████████████████████████████████████████████
+     JAVASCRIPT UTAMA
+████████████████████████████████████████████ -->
+<script>
+/* ─── Navigasi SPA ─── */
+function navigasi(pageId) {
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.remove('aktif');
+    p.style.display = 'none';
+  });
+  const target = document.getElementById('page-' + pageId);
+  if (target) {
+    target.classList.add('aktif');
+    target.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+/* ─── Toggle Solusi ─── */
+function toggleSolusi(id) {
+  const activePage = document.querySelector('.page.aktif');
+  const el = activePage
+    ? activePage.querySelector('#' + id)
+    : document.getElementById(id);
+  if (el) el.classList.toggle('buka');
+}
+
+/* ─── Kuis Pilihan Ganda ─── */
+function jawab(btn, benar, kuisId) {
+  const parent = btn.closest('.kartu');
+  parent.querySelectorAll('.opsi').forEach(b => { b.disabled = true; });
+  btn.classList.add(benar ? 'benar' : 'salah');
+  if (!benar) {
+    parent.querySelectorAll('.opsi').forEach(b => {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes('true')) {
+        b.classList.add('benar');
+      }
+    });
+  }
+  const fb = document.getElementById(kuisId + '-fb');
+  if (fb) {
+    fb.classList.add('tampil');
+    fb.innerHTML = benar
+      ? '<span style="color:var(--hijau);font-weight:700">✓ Benar!</span> Lihat pembahasan di bawah.'
+      : '<span style="color:var(--merah);font-weight:700">✗ Belum tepat.</span> Lihat pembahasan di bawah.';
+  }
+}
+
+/* ─── Navigasi Seksi ─── */
+function gantiSeksi(id, btn) {
+  const activePage = document.querySelector('.page.aktif');
+  if (!activePage) return;
+  activePage.querySelectorAll('.seksi').forEach(s => s.classList.remove('tampil'));
+  activePage.querySelectorAll('.nav-item').forEach(n => n.classList.remove('aktif'));
+  const target = activePage.querySelector('#seksi-' + id);
+  if (target) target.classList.add('tampil');
+  if (btn) btn.classList.add('aktif');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const map = { dasar: 25, pengembangan: 50, pendalaman: 75, kuis: 100 };
+  const fill = activePage.querySelector('#progFill');
+  const pctEl = activePage.querySelector('#pct');
+  if (fill) fill.style.width = (map[id] || 0) + '%';
+  if (pctEl) pctEl.textContent = (map[id] || 0) + '%';
+}
+
+/* ─── Pencarian Bab ─── */
+function cariBAB(q) {
+  const query = q.toLowerCase().trim();
+  document.querySelectorAll('.kartu-bab').forEach(kartu => {
+    const nama = (kartu.dataset.nama || '').toLowerCase();
+    const teks = kartu.querySelector('.bab-nama')?.textContent.toLowerCase() || '';
+    const nomor = kartu.querySelector('.bab-nomor')?.textContent.toLowerCase() || '';
+    const cocok = !query || nama.includes(query) || teks.includes(query) || nomor.includes(query);
+    kartu.classList.toggle('kartu-bab-hidden', !cocok);
+  });
+}
+
+/* ─── Filter Fase ─── */
+function filterFaseKlik(btn, fase) {
+  document.querySelectorAll('.btn-fase').forEach(b => b.classList.remove('aktif'));
+  btn.classList.add('aktif');
+  if (fase === 'semua') {
+    document.querySelectorAll('.fase-section').forEach(s => s.style.display = '');
+    document.querySelectorAll('.kartu-bab').forEach(k => k.classList.remove('kartu-bab-hidden'));
+  } else {
+    document.querySelectorAll('.fase-section').forEach(s => {
+      s.style.display = s.id === 'sec-' + fase ? '' : 'none';
+    });
+    document.querySelectorAll('.kartu-bab').forEach(k => {
+      const cocok = k.dataset.fase === fase;
+      k.classList.toggle('kartu-bab-hidden', !cocok);
+    });
+  }
+}
+
+/* ─── Visualisasi Garis Bilangan (Bab 01) ─── */
+function updateGaris(val) {
+  val = parseInt(val);
+  document.getElementById('out-garis').textContent = val;
+  // x range: -10 to +10, mapped to x=10..510 (500px)
+  const x = 10 + ((val + 10) / 20) * 500;
+  document.getElementById('garis-dot').setAttribute('cx', x);
+
+  const svg = document.getElementById('svg-garis');
+  const ticks = document.getElementById('garis-ticks');
+  if (!ticks.children.length) {
+    // Build ticks once
+    for (let i = -10; i <= 10; i++) {
+      const tx = 10 + ((i + 10) / 20) * 500;
+      const isZero = i === 0;
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', tx); line.setAttribute('x2', tx);
+      line.setAttribute('y1', isZero ? 20 : 25); line.setAttribute('y2', 35);
+      line.setAttribute('stroke', isZero ? 'var(--teks2)' : 'var(--border2)');
+      line.setAttribute('stroke-width', isZero ? 2 : 1);
+      ticks.appendChild(line);
+      if (i % 2 === 0 || isZero) {
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('x', tx); text.setAttribute('y', 52);
+        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('font-size', '11');
+        text.setAttribute('fill', 'var(--teks3)');
+        text.textContent = i;
+        ticks.appendChild(text);
+      }
+    }
+  }
+
+  const ket = document.getElementById('garis-ket');
+  if (val > 0) ket.textContent = `Bilangan ${val} berada di sebelah kanan nol (positif).`;
+  else if (val < 0) ket.textContent = `Bilangan ${val} berada di sebelah kiri nol (negatif).`;
+  else ket.textContent = 'Bilangan 0 berada tepat di tengah garis bilangan.';
+}
+// Init ticks
+window.addEventListener('load', () => updateGaris(0));
+
+/* ─── INISIALISASI SPA ─── */
+document.querySelectorAll('.page').forEach(p => { p.style.display = 'none'; });
+const homeEl = document.getElementById('page-home');
+if (homeEl) { homeEl.style.display = 'block'; homeEl.classList.add('aktif'); }
+</script>
+
+</body>
+</html>
