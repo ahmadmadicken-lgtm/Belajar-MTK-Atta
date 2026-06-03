@@ -851,36 +851,36 @@ input[type=range] {
           <span class="bab-badge-segera">Segera hadir</span>
         </div>
       </div>
-      <div class="kartu-bab segera" data-fase="fase1" data-nama="Bentuk Aljabar variabel koefisien operasi">
+      <div class="kartu-bab tersedia" onclick="navigasi('bab03')" data-fase="fase1" data-nama="Bentuk Aljabar variabel koefisien operasi">
         <div class="bab-nomor">BAB 03</div>
         <div class="bab-nama">Bentuk Aljabar</div>
         <div class="bab-meta">
           <span class="bab-kelas kls-7">Kelas 7</span>
-          <span class="bab-badge-segera">Segera hadir</span>
+          <span class="bab-badge-baru">✓ Tersedia</span>
         </div>
       </div>
-      <div class="kartu-bab segera" data-fase="fase1" data-nama="Persamaan Pertidaksamaan Linear PLSV PtLSV">
+      <div class="kartu-bab tersedia" onclick="navigasi('bab04')" data-fase="fase1" data-nama="Persamaan Pertidaksamaan Linear PLSV PtLSV">
         <div class="bab-nomor">BAB 04</div>
         <div class="bab-nama">Persamaan &amp; Pertidaksamaan Linear</div>
         <div class="bab-meta">
           <span class="bab-kelas kls-7">Kelas 7</span>
-          <span class="bab-badge-segera">Segera hadir</span>
+          <span class="bab-badge-baru">✓ Tersedia</span>
         </div>
       </div>
-      <div class="kartu-bab segera" data-fase="fase1" data-nama="Perbandingan senilai berbalik nilai skala">
+      <div class="kartu-bab tersedia" onclick="navigasi('bab05')" data-fase="fase1" data-nama="Perbandingan senilai berbalik nilai skala">
         <div class="bab-nomor">BAB 05</div>
         <div class="bab-nama">Perbandingan</div>
         <div class="bab-meta">
           <span class="bab-kelas kls-7">Kelas 7</span>
-          <span class="bab-badge-segera">Segera hadir</span>
+          <span class="bab-badge-baru">✓ Tersedia</span>
         </div>
       </div>
-      <div class="kartu-bab segera" data-fase="fase1" data-nama="Aritmetika Sosial untung rugi diskon pajak bruto neto bunga">
+      <div class="kartu-bab tersedia" onclick="navigasi('bab06')" data-fase="fase1" data-nama="Aritmetika Sosial untung rugi diskon pajak bruto neto bunga">
         <div class="bab-nomor">BAB 06</div>
         <div class="bab-nama">Aritmetika Sosial</div>
         <div class="bab-meta">
           <span class="bab-kelas kls-7">Kelas 7</span>
-          <span class="bab-badge-segera">Segera hadir</span>
+          <span class="bab-badge-baru">✓ Tersedia</span>
         </div>
       </div>
     </div>
@@ -1789,7 +1789,1378 @@ input[type=range] {
 
 
 <!-- ████████████████████████████████████████████
-     BAB 03–27 — PLACEHOLDER
+     BAB 03 — BENTUK ALJABAR
+████████████████████████████████████████████ -->
+<div id="page-bab03" class="page">
+  <div class="bab-layout">
+    <nav class="sidebar">
+      <div class="sidebar-logo" onclick="navigasi('home')">
+        <div class="sidebar-logo-nama">📐 MathSMP</div>
+        <div class="sidebar-logo-sub">← Kembali ke Halaman Utama</div>
+      </div>
+      <div class="sidebar-bab-judul">Bab 03 · Navigasi</div>
+      <div class="nav-item aktif" onclick="gantiSeksi('dasar', this)">
+        <div class="nav-item-icon">🔤</div>Konsep Dasar
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('pengembangan', this)">
+        <div class="nav-item-icon">📐</div>Pengembangan
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('pendalaman', this)">
+        <div class="nav-item-icon">🧠</div>Pendalaman
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('kuis', this)">
+        <div class="nav-item-icon">✏️</div>Latihan Kuis
+      </div>
+      <div class="sidebar-progress">
+        <div class="sidebar-progress-label">
+          <span>Progress bab ini</span><span id="pct">25%</span>
+        </div>
+        <div class="sidebar-progress-bar">
+          <div class="sidebar-progress-fill" id="progFill"></div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="bab-konten">
+      <div class="bab-header">
+        <div class="bab-header-breadcrumb">
+          <span onclick="navigasi('home')" style="cursor:pointer;color:var(--biru)">Beranda</span>
+          › <span>Fase 1</span> › <span>Bab 03</span>
+        </div>
+        <h1>Bentuk Aljabar</h1>
+        <div class="bab-header-meta">
+          <span class="bab-kelas kls-7">Kelas 7</span>
+          <span style="font-size:13px;color:var(--teks3)">Fase 1 — Fondasi</span>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 1: KONSEP DASAR ══ -->
+      <div id="seksi-dasar" class="seksi tampil">
+        <div class="level-banner banner-sd">⭐ Level: Konsep Dasar</div>
+
+        <div class="analogi">
+          <strong>🛒 Bayangkan kamu belanja di kantin.</strong> Kamu beli <em>x</em> bungkus keripik dan <em>y</em> gelas minuman. Kamu tidak tahu harganya dulu — nanti kasirnya bilang. Huruf <em>x</em> dan <em>y</em> itu adalah <strong>variabel</strong>: penampung nilai yang belum diketahui. Aljabar adalah matematika yang memakai huruf sebagai pengganti angka!
+        </div>
+
+        <!-- Visualisasi: timbangan aljabar interaktif -->
+        <div class="interaktif-wrap">
+          <h3>⚖️ Timbangan Aljabar</h3>
+          <p style="font-size:13px;color:var(--teks2);margin-bottom:14px">Geser slider untuk mengisi nilai x, lalu lihat ekspresi aljabar berubah!</p>
+          <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:12px">
+            <div style="flex:1;min-width:160px">
+              <label style="font-size:12px;color:var(--teks2)">Nilai x =</label>
+              <input type="range" min="1" max="10" value="3" id="slider-alj" oninput="updateAlj(this.value)" style="width:100%;margin-top:6px">
+              <div class="output-nilai" id="out-x">3</div>
+            </div>
+            <div style="flex:2;min-width:200px">
+              <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px 18px">
+                <div style="font-size:13px;color:var(--teks3);margin-bottom:6px">Ekspresi: <strong style="color:var(--biru-teks)">3x + 2x − x + 5</strong></div>
+                <div style="font-size:13px;color:var(--teks2)">Sederhanakan dulu: <strong style="color:var(--teal-teks)">4x + 5</strong></div>
+                <div style="font-size:20px;font-weight:800;color:var(--hijau-teks);margin-top:6px">Nilai = <span id="out-alj-nilai">17</span></div>
+              </div>
+            </div>
+          </div>
+          <svg id="svg-timbangan" viewBox="0 0 380 130" style="width:100%;max-width:380px;display:block;margin:0 auto">
+            <!-- Tiang -->
+            <rect x="188" y="30" width="4" height="75" fill="var(--teks3)" rx="2"/>
+            <!-- Alas -->
+            <rect x="158" y="104" width="64" height="8" fill="var(--teks3)" rx="4"/>
+            <!-- Lengan (dinamis) -->
+            <line id="lengan-kiri" x1="190" y1="34" x2="60" y2="50" stroke="var(--teks2)" stroke-width="3" stroke-linecap="round"/>
+            <line id="lengan-kanan" x1="190" y1="34" x2="320" y2="50" stroke="var(--teks2)" stroke-width="3" stroke-linecap="round"/>
+            <!-- Piring kiri (ekspresi) -->
+            <ellipse id="piring-kiri" cx="60" cy="66" rx="44" ry="12" fill="var(--biru-muda)" stroke="var(--biru)" stroke-width="1.5"/>
+            <text id="teks-kiri" x="60" y="70" text-anchor="middle" font-size="12" font-weight="700" fill="var(--biru-teks)">4x+5 = 17</text>
+            <!-- Piring kanan (nilai) -->
+            <ellipse id="piring-kanan" cx="320" cy="66" rx="44" ry="12" fill="var(--hijau-muda)" stroke="var(--hijau)" stroke-width="1.5"/>
+            <text id="teks-kanan" x="320" y="70" text-anchor="middle" font-size="12" font-weight="700" fill="var(--hijau-teks)">17</text>
+          </svg>
+        </div>
+
+        <div class="kartu">
+          <h2>Anatomi Bentuk Aljabar</h2>
+          <div style="background:var(--bg2);border-radius:10px;padding:18px;margin-bottom:16px;font-size:22px;font-weight:800;text-align:center;letter-spacing:.02em;color:var(--teks)">
+            <span style="color:var(--merah-teks)">5</span><span style="color:var(--biru-teks)">x²</span>
+            <span style="color:var(--teks3);font-size:16px;font-weight:400"> + </span>
+            <span style="color:var(--merah-teks)">3</span><span style="color:var(--biru-teks)">x</span>
+            <span style="color:var(--teks3);font-size:16px;font-weight:400"> − </span>
+            <span style="color:var(--amber-teks)">7</span>
+          </div>
+          <div class="tabel-wrap">
+            <table class="sifat">
+              <thead><tr><th>Bagian</th><th>Simbol</th><th>Definisi</th><th>Contoh di atas</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Variabel</strong></td><td>x, y, a, b ...</td><td>Huruf pengganti bilangan yang belum diketahui</td><td>x</td></tr>
+                <tr><td><strong>Koefisien</strong></td><td>angka di depan variabel</td><td>Bilangan yang mengalikan variabel</td><td>5 (pada 5x²), 3 (pada 3x)</td></tr>
+                <tr><td><strong>Konstanta</strong></td><td>angka berdiri sendiri</td><td>Bilangan tetap, tidak punya variabel</td><td>−7</td></tr>
+                <tr><td><strong>Suku</strong></td><td>dipisah tanda + atau −</td><td>Bagian-bagian dalam ekspresi</td><td>5x², 3x, dan −7 → 3 suku</td></tr>
+                <tr><td><strong>Derajat</strong></td><td>pangkat tertinggi variabel</td><td>Menentukan jenis ekspresi</td><td>2 (karena x²)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="info-box tips">
+          <div class="ikon">💡</div>
+          <div><strong>Suku sejenis vs tidak sejenis:</strong> 3x dan 5x adalah <em>suku sejenis</em> (variabel dan pangkat sama) → bisa dijumlah. Tapi 3x dan 5x² adalah <em>suku tidak sejenis</em> → tidak bisa digabung!</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="navigasi('bab02')">← Bab 02</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('pengembangan', document.querySelectorAll('#page-bab03 .nav-item')[1])">Pengembangan →</button>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 2: PENGEMBANGAN ══ -->
+      <div id="seksi-pengembangan" class="seksi">
+        <div class="level-banner banner-smp">📘 Level: Pengembangan</div>
+
+        <div class="kartu">
+          <h2>Operasi pada Bentuk Aljabar</h2>
+
+          <div class="rumus">
+            Penjumlahan/Pengurangan : hanya suku SEJENIS yang bisa digabung<br>
+            Perkalian suku tunggal  : a(b + c) = ab + ac  ← distributif<br>
+            Perkalian dua suku      : (a+b)(c+d) = ac + ad + bc + bd ← FOIL<br>
+            Pembagian               : sederhanakan dengan faktor persekutuan
+          </div>
+
+          <!-- Kalkulator penyederhanaan interaktif -->
+          <div class="interaktif-wrap" style="margin-top:0;margin-bottom:18px">
+            <h3>🧮 Kalkulator Suku Sejenis</h3>
+            <p style="font-size:13px;color:var(--teks2);margin-bottom:12px">Masukkan koefisien, lalu lihat hasil penjumlahannya!</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px">
+              <div style="display:flex;align-items:center;gap:6px">
+                <input type="number" id="k1" value="3" style="width:60px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:16px;font-weight:700;text-align:center;background:var(--biru-muda);color:var(--biru-teks)" oninput="hitungSuku()">
+                <span style="font-size:16px;font-weight:700;color:var(--biru-teks)">x²</span>
+              </div>
+              <span style="font-size:20px;color:var(--teks3)">+</span>
+              <div style="display:flex;align-items:center;gap:6px">
+                <input type="number" id="k2" value="5" style="width:60px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:16px;font-weight:700;text-align:center;background:var(--biru-muda);color:var(--biru-teks)" oninput="hitungSuku()">
+                <span style="font-size:16px;font-weight:700;color:var(--biru-teks)">x²</span>
+              </div>
+              <span style="font-size:20px;color:var(--teks3)">+</span>
+              <div style="display:flex;align-items:center;gap:6px">
+                <input type="number" id="k3" value="2" style="width:60px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:16px;font-weight:700;text-align:center;background:var(--hijau-muda);color:var(--hijau-teks)" oninput="hitungSuku()">
+                <span style="font-size:16px;font-weight:700;color:var(--hijau-teks)">x</span>
+              </div>
+              <span style="font-size:20px;color:var(--teks3)">+</span>
+              <div style="display:flex;align-items:center;gap:6px">
+                <input type="number" id="k4" value="4" style="width:60px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:16px;font-weight:700;text-align:center;background:var(--hijau-muda);color:var(--hijau-teks)" oninput="hitungSuku()">
+                <span style="font-size:16px;font-weight:700;color:var(--hijau-teks)">x</span>
+              </div>
+            </div>
+            <div id="hasil-suku" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 16px;font-size:15px;line-height:1.8"></div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 1 — Mudah</div>
+            <p>Sederhanakan: 4x + 3y − 2x + 7y</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol03a')">💡 Lihat Solusi</button>
+          <div id="sol03a" class="solusi">
+            <ol>
+              <li>Kelompokkan suku sejenis: (4x − 2x) + (3y + 7y)</li>
+              <li>4x − 2x = <strong>2x</strong></li>
+              <li>3y + 7y = <strong>10y</strong></li>
+            </ol>
+            <div class="hasil">✓ Hasil: 2x + 10y</div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 2 — Menengah</div>
+            <p>Jabarkan dan sederhanakan: 3(2x − 4) + 2(x + 5)</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol03b')">💡 Lihat Solusi</button>
+          <div id="sol03b" class="solusi">
+            <ol>
+              <li>Distribusikan: 3·2x + 3·(−4) + 2·x + 2·5</li>
+              <li>= 6x − 12 + 2x + 10</li>
+              <li>Kelompokkan sejenis: (6x + 2x) + (−12 + 10)</li>
+              <li>= <strong>8x − 2</strong></li>
+            </ol>
+            <div class="hasil">✓ Hasil: 8x − 2</div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 3 — Agak Sulit</div>
+            <p>Jabarkan: (x + 3)(x − 2)</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol03c')">💡 Lihat Solusi</button>
+          <div id="sol03c" class="solusi">
+            <ol>
+              <li>Pakai metode FOIL: <strong>F</strong>irst, <strong>O</strong>uter, <strong>I</strong>nner, <strong>L</strong>ast</li>
+              <li>First: x · x = x²</li>
+              <li>Outer: x · (−2) = −2x</li>
+              <li>Inner: 3 · x = 3x</li>
+              <li>Last: 3 · (−2) = −6</li>
+              <li>Gabungkan: x² − 2x + 3x − 6 = <strong>x² + x − 6</strong></li>
+            </ol>
+            <div class="hasil">✓ (x + 3)(x − 2) = x² + x − 6</div>
+          </div>
+        </div>
+
+        <div class="info-box bahaya">
+          <div class="ikon">🚨</div>
+          <div><strong>Kesalahan klasik distribusi negatif:</strong> −2(x − 3) bukan −2x − 3, melainkan −2x <strong>+ 6</strong>! Tanda negatif mendistribusi ke SEMUA suku dalam kurung.</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('dasar', document.querySelectorAll('#page-bab03 .nav-item')[0])">← Konsep Dasar</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('pendalaman', document.querySelectorAll('#page-bab03 .nav-item')[2])">Pendalaman →</button>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 3: PENDALAMAN ══ -->
+      <div id="seksi-pendalaman" class="seksi">
+        <div class="level-banner banner-sma">🚀 Level: Pendalaman</div>
+
+        <div class="kartu">
+          <h2>Faktorisasi &amp; Identitas Aljabar</h2>
+
+          <div class="analogi">
+            <strong>🧩 Faktorisasi = kebalikan distribusi.</strong> Kalau distribusi itu "membuka kurung", maka faktorisasi itu "menutup kembali". Kamu mencari faktor persekutuan terbesar (FPB) dari semua suku — di sinilah materi Bab 01 dipakai kembali!
+          </div>
+
+          <div class="rumus">
+            Faktorisasi FPB    : 6x + 9 = 3(2x + 3)   ← FPB(6,9) = 3<br>
+            Selisih dua kuadrat: a² − b² = (a+b)(a−b)<br>
+            Kuadrat sempurna + : (a+b)² = a² + 2ab + b²<br>
+            Kuadrat sempurna − : (a−b)² = a² − 2ab + b²
+          </div>
+
+          <!-- Builder identitas interaktif -->
+          <div class="interaktif-wrap" style="margin-top:0;margin-bottom:18px">
+            <h3>🔬 Eksplorasi Identitas (a+b)²</h3>
+            <p style="font-size:13px;color:var(--teks2);margin-bottom:12px">Masukkan nilai a dan b, cek apakah (a+b)² = a² + 2ab + b²!</p>
+            <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:12px">
+              <div>
+                <label style="font-size:12px;color:var(--teks2)">Nilai a</label>
+                <input type="number" id="id-a" value="3" style="width:70px;display:block;margin-top:4px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:16px;font-weight:700;text-align:center" oninput="hitungIdentitas()">
+              </div>
+              <div>
+                <label style="font-size:12px;color:var(--teks2)">Nilai b</label>
+                <input type="number" id="id-b" value="2" style="width:70px;display:block;margin-top:4px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:16px;font-weight:700;text-align:center" oninput="hitungIdentitas()">
+              </div>
+            </div>
+            <div id="hasil-identitas" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;font-size:14px;line-height:2.2"></div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Soal Aplikasi 1</div>
+            <p>Faktorkan: 12x² − 8x</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol03d')">💡 Lihat Solusi</button>
+          <div id="sol03d" class="solusi">
+            <ol>
+              <li>FPB koefisien: FPB(12, 8) = 4</li>
+              <li>FPB variabel: x² dan x → ambil pangkat terkecil = x</li>
+              <li>FPB keseluruhan = 4x</li>
+              <li>12x² ÷ 4x = 3x &nbsp;&nbsp; | &nbsp;&nbsp; 8x ÷ 4x = 2</li>
+              <li>Hasil: <strong>4x(3x − 2)</strong></li>
+            </ol>
+            <div class="hasil">✓ 12x² − 8x = 4x(3x − 2)</div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Soal Aplikasi 2</div>
+            <p>Sebuah persegi panjang luasnya dinyatakan sebagai x² + 5x + 6. Nyatakan sebagai hasil kali dua faktor!</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol03e')">💡 Lihat Solusi</button>
+          <div id="sol03e" class="solusi">
+            <ol>
+              <li>Cari dua bilangan yang <strong>berjumlah 5</strong> dan <strong>berkalikan 6</strong></li>
+              <li>2 + 3 = 5 ✓ &nbsp;&nbsp; 2 × 3 = 6 ✓</li>
+              <li>Faktorisasi: <strong>(x + 2)(x + 3)</strong></li>
+              <li>Cek: (x+2)(x+3) = x² + 3x + 2x + 6 = x² + 5x + 6 ✓</li>
+            </ol>
+            <div class="hasil">✓ x² + 5x + 6 = (x + 2)(x + 3)</div>
+          </div>
+        </div>
+
+        <div class="info-box tips">
+          <div class="ikon">🔗</div>
+          <div><strong>Koneksi ke Bab 04 (PLSV) dan Bab 26 (Persamaan Kuadrat):</strong> Kemampuan memfaktorkan aljabar adalah kunci utama menyelesaikan persamaan! Kalau aljabar lancar, dua bab itu akan jauh lebih mudah.</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('pengembangan', document.querySelectorAll('#page-bab03 .nav-item')[1])">← Pengembangan</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('kuis', document.querySelectorAll('#page-bab03 .nav-item')[3])">Latihan Kuis →</button>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 4: KUIS ══ -->
+      <div id="seksi-kuis" class="seksi">
+        <div class="level-banner banner-smp">✏️ Latihan Kuis</div>
+
+        <div class="kartu">
+          <div class="kuis-label">Kuis 1 dari 2</div>
+          <div class="kuis-soal">Hasil penyederhanaan dari 5x − 3 + 2x + 7 adalah...</div>
+          <div class="kuis-opsi">
+            <button class="opsi" onclick="jawab(this, false, 'k3q1')">A. 7x − 10</button>
+            <button class="opsi" onclick="jawab(this, true,  'k3q1')">B. 7x + 4</button>
+            <button class="opsi" onclick="jawab(this, false, 'k3q1')">C. 3x + 4</button>
+            <button class="opsi" onclick="jawab(this, false, 'k3q1')">D. 7x − 4</button>
+          </div>
+          <div id="k3q1-fb" class="kuis-fb"></div>
+          <div class="kuis-pembahasan">
+            <strong>Pembahasan:</strong><br>
+            Kelompokkan suku sejenis: (5x + 2x) + (−3 + 7)<br>
+            = <strong>7x + 4</strong><br>
+            Jawaban D (7x − 4) salah karena −3 + 7 = +4, bukan −4.
+          </div>
+        </div>
+
+        <div class="kartu">
+          <div class="kuis-label">Kuis 2 dari 2</div>
+          <div class="kuis-soal">Faktorisasi dari 10x² + 15x adalah...</div>
+          <div class="kuis-opsi">
+            <button class="opsi" onclick="jawab(this, false, 'k3q2')">A. 5(2x² + 3x)</button>
+            <button class="opsi" onclick="jawab(this, false, 'k3q2')">B. x(10x + 15)</button>
+            <button class="opsi" onclick="jawab(this, true,  'k3q2')">C. 5x(2x + 3)</button>
+            <button class="opsi" onclick="jawab(this, false, 'k3q2')">D. 10x(x + 5)</button>
+          </div>
+          <div id="k3q2-fb" class="kuis-fb"></div>
+          <div class="kuis-pembahasan">
+            <strong>Pembahasan:</strong><br>
+            FPB(10, 15) = 5 &nbsp;&nbsp; FPB variabel = x<br>
+            Jadi FPB = 5x<br>
+            10x² ÷ 5x = 2x &nbsp;&nbsp; | &nbsp;&nbsp; 15x ÷ 5x = 3<br>
+            Hasil: <strong>5x(2x + 3)</strong><br>
+            Pilihan A kurang tepat karena FPB-nya bukan 5 saja — ada juga faktor x!
+          </div>
+        </div>
+
+        <div class="info-box sukses">
+          <div class="ikon">🎉</div>
+          <div><strong>Mantap!</strong> Bab 03 selesai. Sekarang kamu sudah bisa membaca, mengoperasikan, dan memfaktorkan bentuk aljabar. Lanjut ke PLSV!</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('pendalaman', document.querySelectorAll('#page-bab03 .nav-item')[2])">← Pendalaman</button>
+          <button class="btn-nav primer" onclick="navigasi('bab04')">Bab 04: PLSV →</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div><!-- /page-bab03 -->
+
+
+<!-- ████████████████████████████████████████████
+     BAB 04 — PLSV & PtLSV
+████████████████████████████████████████████ -->
+<div id="page-bab04" class="page">
+  <div class="bab-layout">
+    <nav class="sidebar">
+      <div class="sidebar-logo" onclick="navigasi('home')">
+        <div class="sidebar-logo-nama">📐 MathSMP</div>
+        <div class="sidebar-logo-sub">← Kembali ke Halaman Utama</div>
+      </div>
+      <div class="sidebar-bab-judul">Bab 04 · Navigasi</div>
+      <div class="nav-item aktif" onclick="gantiSeksi('dasar', this)">
+        <div class="nav-item-icon">⚖️</div>Konsep Dasar
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('pengembangan', this)">
+        <div class="nav-item-icon">📐</div>Pengembangan
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('pendalaman', this)">
+        <div class="nav-item-icon">🧠</div>Pendalaman
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('kuis', this)">
+        <div class="nav-item-icon">✏️</div>Latihan Kuis
+      </div>
+      <div class="sidebar-progress">
+        <div class="sidebar-progress-label">
+          <span>Progress bab ini</span><span id="pct">25%</span>
+        </div>
+        <div class="sidebar-progress-bar">
+          <div class="sidebar-progress-fill" id="progFill"></div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="bab-konten">
+      <div class="bab-header">
+        <div class="bab-header-breadcrumb">
+          <span onclick="navigasi('home')" style="cursor:pointer;color:var(--biru)">Beranda</span>
+          › <span>Fase 1</span> › <span>Bab 04</span>
+        </div>
+        <h1>Persamaan &amp; Pertidaksamaan Linear Satu Variabel</h1>
+        <div class="bab-header-meta">
+          <span class="bab-kelas kls-7">Kelas 7</span>
+          <span style="font-size:13px;color:var(--teks3)">Fase 1 — Fondasi</span>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 1: KONSEP DASAR ══ -->
+      <div id="seksi-dasar" class="seksi tampil">
+        <div class="level-banner banner-sd">⭐ Level: Konsep Dasar</div>
+
+        <div class="analogi">
+          <strong>⚖️ Bayangkan sebuah timbangan yang seimbang.</strong> Di kiri ada beban x + 3, di kanan ada 7. Supaya tetap seimbang, apa yang kamu lakukan ke satu sisi harus dilakukan ke sisi lain juga. Itulah prinsip persamaan! Kamu boleh tambah, kurang, kali, atau bagi — <em>selama dilakukan ke kedua sisi</em>, timbangan tetap seimbang.
+        </div>
+
+        <!-- Visualisasi timbangan PLSV interaktif -->
+        <div class="interaktif-wrap">
+          <h3>⚖️ Timbangan Persamaan — Selesaikan x + 3 = 7</h3>
+          <p style="font-size:13px;color:var(--teks2);margin-bottom:12px">Klik tombol operasi untuk menyelesaikan persamaan step by step!</p>
+          <div id="plsv-display" style="text-align:center;font-size:22px;font-weight:800;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:10px;margin-bottom:12px;color:var(--teks)">
+            x + 3 = 7
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:10px">
+            <button onclick="plsvStep(1)" id="btn-plsv1" style="padding:8px 18px;border-radius:8px;border:1.5px solid var(--border2);background:var(--bg);font-size:13px;font-weight:600;cursor:pointer;color:var(--teks2)">Langkah 1: Kurangi 3 dari kedua sisi</button>
+            <button onclick="plsvStep(2)" id="btn-plsv2" style="padding:8px 18px;border-radius:8px;border:1.5px solid var(--border2);background:var(--bg);font-size:13px;font-weight:600;cursor:pointer;color:var(--teks2);display:none">Langkah 2: Selesai!</button>
+            <button onclick="plsvReset()" style="padding:8px 14px;border-radius:8px;border:1.5px solid var(--border2);background:var(--bg2);font-size:13px;cursor:pointer;color:var(--teks3)">↺ Ulangi</button>
+          </div>
+          <div id="plsv-ket" style="font-size:13px;color:var(--teks2);text-align:center;min-height:20px"></div>
+        </div>
+
+        <div class="kartu">
+          <h2>Persamaan vs Pertidaksamaan</h2>
+          <div class="tabel-wrap">
+            <table class="sifat">
+              <thead><tr><th>Jenis</th><th>Simbol</th><th>Arti</th><th>Contoh</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Persamaan</strong></td><td>=</td><td>Tepat sama</td><td>2x + 1 = 9</td></tr>
+                <tr><td><strong>Pertidaksamaan &lt;</strong></td><td>&lt;</td><td>Kurang dari</td><td>x + 2 &lt; 5</td></tr>
+                <tr><td><strong>Pertidaksamaan &gt;</strong></td><td>&gt;</td><td>Lebih dari</td><td>3x &gt; 12</td></tr>
+                <tr><td><strong>Pertidaksamaan ≤</strong></td><td>≤</td><td>Kurang dari atau sama</td><td>2x − 1 ≤ 7</td></tr>
+                <tr><td><strong>Pertidaksamaan ≥</strong></td><td>≥</td><td>Lebih dari atau sama</td><td>x − 3 ≥ 0</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="info-box hati">
+          <div class="ikon">⚠️</div>
+          <div><strong>Perbedaan penting:</strong> Persamaan punya <em>satu jawaban tepat</em> (x = 4). Pertidaksamaan punya <em>tak hingga jawaban</em> dalam rentang tertentu (x &lt; 4 berarti ..., 1, 2, 3 semua benar).</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="navigasi('bab03')">← Bab 03</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('pengembangan', document.querySelectorAll('#page-bab04 .nav-item')[1])">Pengembangan →</button>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 2: PENGEMBANGAN ══ -->
+      <div id="seksi-pengembangan" class="seksi">
+        <div class="level-banner banner-smp">📘 Level: Pengembangan</div>
+
+        <div class="kartu">
+          <h2>Langkah Menyelesaikan PLSV</h2>
+          <div class="rumus">
+            Tujuan: isolasi variabel (x sendirian di satu sisi)<br>
+            Langkah:<br>
+            1. Pindahkan suku yang mengandung variabel ke kiri<br>
+            2. Pindahkan konstanta ke kanan<br>
+            3. Bagi/kalikan untuk membuat koefisien x = 1<br>
+            Ingat: setiap operasi dilakukan ke KEDUA SISI
+          </div>
+
+          <!-- Solver PLSV interaktif -->
+          <div class="interaktif-wrap" style="margin-top:0;margin-bottom:18px">
+            <h3>🧮 Solver Persamaan Linear</h3>
+            <p style="font-size:13px;color:var(--teks2);margin-bottom:12px">Masukkan persamaan bentuk <strong>ax + b = c</strong>, solver tunjukkan langkah-langkahnya!</p>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px">
+              <input type="number" id="sol-a" value="2" style="width:60px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:16px;font-weight:700;text-align:center">
+              <span style="font-size:18px;font-weight:700;color:var(--biru-teks)">x +</span>
+              <input type="number" id="sol-b" value="3" style="width:60px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:16px;font-weight:700;text-align:center">
+              <span style="font-size:18px;font-weight:700;color:var(--teks)">=</span>
+              <input type="number" id="sol-c" value="11" style="width:60px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:16px;font-weight:700;text-align:center">
+              <button onclick="selesaikanPLSV()" style="padding:9px 18px;background:var(--biru);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer">Selesaikan</button>
+            </div>
+            <div id="hasil-plsv" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;font-size:14px;line-height:2.2;min-height:60px"></div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 1 — Mudah</div>
+            <p>Selesaikan: 3x − 5 = 10</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol04a')">💡 Lihat Solusi</button>
+          <div id="sol04a" class="solusi">
+            <ol>
+              <li>3x − 5 = 10</li>
+              <li>Tambah 5 ke kedua sisi: 3x = 10 + 5 = 15</li>
+              <li>Bagi kedua sisi dengan 3: x = 15 ÷ 3 = <strong>5</strong></li>
+              <li>Cek: 3(5) − 5 = 15 − 5 = 10 ✓</li>
+            </ol>
+            <div class="hasil">✓ x = 5</div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 2 — Menengah</div>
+            <p>Selesaikan: 4x + 7 = 2x + 15</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol04b')">💡 Lihat Solusi</button>
+          <div id="sol04b" class="solusi">
+            <ol>
+              <li>Pindah suku x ke kiri: 4x − 2x = 15 − 7</li>
+              <li>2x = 8</li>
+              <li>x = 8 ÷ 2 = <strong>4</strong></li>
+              <li>Cek: 4(4)+7 = 23 &nbsp;&nbsp; 2(4)+15 = 23 ✓</li>
+            </ol>
+            <div class="hasil">✓ x = 4</div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 3 — Pertidaksamaan</div>
+            <p>Selesaikan dan gambarkan: 3x − 4 &lt; 8, x bilangan bulat</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol04c')">💡 Lihat Solusi</button>
+          <div id="sol04c" class="solusi">
+            <ol>
+              <li>3x − 4 &lt; 8</li>
+              <li>Tambah 4: 3x &lt; 12</li>
+              <li>Bagi 3: x &lt; 4</li>
+              <li>Himpunan penyelesaian: {..., −1, 0, 1, 2, 3}</li>
+            </ol>
+            <div class="hasil">✓ x &lt; 4 (lingkaran terbuka di 4, garis ke kiri)</div>
+          </div>
+        </div>
+
+        <div class="info-box bahaya">
+          <div class="ikon">🚨</div>
+          <div><strong>ATURAN TERPENTING PtLSV:</strong> Kalau mengalikan atau membagi kedua sisi dengan bilangan <em>negatif</em>, tanda pertidaksamaan <strong>harus dibalik!</strong><br>
+          Contoh: −2x &lt; 6 → x <strong>&gt;</strong> −3 (tanda &lt; jadi &gt;!)</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('dasar', document.querySelectorAll('#page-bab04 .nav-item')[0])">← Konsep Dasar</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('pendalaman', document.querySelectorAll('#page-bab04 .nav-item')[2])">Pendalaman →</button>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 3: PENDALAMAN ══ -->
+      <div id="seksi-pendalaman" class="seksi">
+        <div class="level-banner banner-sma">🚀 Level: Pendalaman</div>
+
+        <div class="kartu">
+          <h2>Soal Cerita &amp; Pemodelan</h2>
+          <div class="analogi">
+            <strong>🗺️ Strategi soal cerita:</strong><br>
+            1. <strong>Tentukan variabel</strong> — apa yang dicari? Misalkan = x<br>
+            2. <strong>Buat kalimat matematika</strong> — terjemahkan kata ke simbol<br>
+            3. <strong>Selesaikan</strong> — isolasi x<br>
+            4. <strong>Cek dan nyatakan jawaban</strong> — pastikan masuk akal dalam konteks soal
+          </div>
+
+          <!-- Visualisasi garis bilangan pertidaksamaan interaktif -->
+          <div class="interaktif-wrap" style="margin-top:0;margin-bottom:18px">
+            <h3>📏 Garis Bilangan Pertidaksamaan</h3>
+            <p style="font-size:13px;color:var(--teks2);margin-bottom:12px">Masukkan pertidaksamaan bentuk <strong>ax + b [op] c</strong> untuk melihat visualisasinya!</p>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px">
+              <input type="number" id="pt-a" value="2" style="width:56px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:15px;font-weight:700;text-align:center">
+              <span style="font-weight:700;color:var(--biru-teks)">x +</span>
+              <input type="number" id="pt-b" value="1" style="width:56px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:15px;font-weight:700;text-align:center">
+              <select id="pt-op" style="padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:15px;font-weight:700;background:var(--bg)">
+                <option value="lt">&lt;</option>
+                <option value="lte">≤</option>
+                <option value="gt">&gt;</option>
+                <option value="gte">≥</option>
+              </select>
+              <input type="number" id="pt-c" value="7" style="width:56px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:15px;font-weight:700;text-align:center">
+              <button onclick="visualGaris()" style="padding:9px 16px;background:var(--biru);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer">Gambar</button>
+            </div>
+            <div id="hasil-ptlsv" style="margin-bottom:8px;font-size:14px;font-weight:600;color:var(--teks);min-height:24px"></div>
+            <svg id="svg-garis-pt" viewBox="0 0 420 60" style="width:100%;max-width:420px;display:block">
+              <line x1="20" y1="30" x2="400" y2="30" stroke="var(--border2)" stroke-width="2"/>
+              <line x1="395" y1="24" x2="400" y2="30" stroke="var(--border2)" stroke-width="2"/>
+              <line x1="395" y1="36" x2="400" y2="30" stroke="var(--border2)" stroke-width="2"/>
+              <g id="garis-pt-content"></g>
+            </svg>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Soal Aplikasi 1 — Cerita PLSV</div>
+            <p>Umur Rafi sekarang 3 kali umur adiknya. Selisih umur mereka 14 tahun. Berapa umur Rafi?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol04d')">💡 Lihat Solusi</button>
+          <div id="sol04d" class="solusi">
+            <ol>
+              <li>Misalkan umur adik = x, maka umur Rafi = 3x</li>
+              <li>Selisih: 3x − x = 14</li>
+              <li>2x = 14 → x = 7</li>
+              <li>Umur Rafi = 3 × 7 = <strong>21 tahun</strong></li>
+              <li>Cek: selisih 21 − 7 = 14 ✓</li>
+            </ol>
+            <div class="hasil">✓ Umur Rafi = 21 tahun, umur adik = 7 tahun</div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Soal Aplikasi 2 — Cerita PtLSV</div>
+            <p>Dito punya uang Rp50.000. Ia ingin membeli beberapa buku seharga Rp12.000 per buku dan pensil Rp4.000. Berapa maksimal buku yang bisa dibeli agar uangnya cukup?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol04e')">💡 Lihat Solusi</button>
+          <div id="sol04e" class="solusi">
+            <ol>
+              <li>Misalkan jumlah buku = x</li>
+              <li>Total belanja: 12.000x + 4.000 ≤ 50.000</li>
+              <li>12.000x ≤ 46.000</li>
+              <li>x ≤ 46.000 ÷ 12.000 = 3,83...</li>
+              <li>Karena x harus bilangan bulat: x ≤ <strong>3</strong></li>
+            </ol>
+            <div class="hasil">✓ Maksimal 3 buku yang bisa dibeli</div>
+          </div>
+        </div>
+
+        <div class="info-box tips">
+          <div class="ikon">🔗</div>
+          <div><strong>Koneksi ke Bab 11 (SPLDV):</strong> PLSV adalah fondasi! Di Bab 11 kamu akan menyelesaikan <em>dua</em> persamaan linear sekaligus dengan dua variabel — jadi pastikan teknik isolasi variabel ini sudah lancar dulu.</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('pengembangan', document.querySelectorAll('#page-bab04 .nav-item')[1])">← Pengembangan</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('kuis', document.querySelectorAll('#page-bab04 .nav-item')[3])">Latihan Kuis →</button>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 4: KUIS ══ -->
+      <div id="seksi-kuis" class="seksi">
+        <div class="level-banner banner-smp">✏️ Latihan Kuis</div>
+
+        <div class="kartu">
+          <div class="kuis-label">Kuis 1 dari 2</div>
+          <div class="kuis-soal">Penyelesaian dari 5x − 3 = 2x + 9 adalah...</div>
+          <div class="kuis-opsi">
+            <button class="opsi" onclick="jawab(this, false, 'k4q1')">A. x = 2</button>
+            <button class="opsi" onclick="jawab(this, true,  'k4q1')">B. x = 4</button>
+            <button class="opsi" onclick="jawab(this, false, 'k4q1')">C. x = 6</button>
+            <button class="opsi" onclick="jawab(this, false, 'k4q1')">D. x = 12</button>
+          </div>
+          <div id="k4q1-fb" class="kuis-fb"></div>
+          <div class="kuis-pembahasan">
+            <strong>Pembahasan:</strong><br>
+            5x − 2x = 9 + 3<br>
+            3x = 12<br>
+            x = <strong>4</strong><br>
+            Cek: 5(4)−3 = 17 dan 2(4)+9 = 17 ✓
+          </div>
+        </div>
+
+        <div class="kartu">
+          <div class="kuis-label">Kuis 2 dari 2</div>
+          <div class="kuis-soal">Himpunan penyelesaian dari −3x + 2 &gt; 11 adalah...</div>
+          <div class="kuis-opsi">
+            <button class="opsi" onclick="jawab(this, false, 'k4q2')">A. x &gt; −3</button>
+            <button class="opsi" onclick="jawab(this, true,  'k4q2')">B. x &lt; −3</button>
+            <button class="opsi" onclick="jawab(this, false, 'k4q2')">C. x &gt; 3</button>
+            <button class="opsi" onclick="jawab(this, false, 'k4q2')">D. x &lt; 3</button>
+          </div>
+          <div id="k4q2-fb" class="kuis-fb"></div>
+          <div class="kuis-pembahasan">
+            <strong>Pembahasan:</strong><br>
+            −3x + 2 &gt; 11<br>
+            −3x &gt; 9<br>
+            Bagi dengan −3 → <em>tanda BALIK!</em><br>
+            x &lt; −3<br>
+            Ini adalah jebakan klasik — bagi bilangan negatif = tanda pertidaksamaan berbalik!
+          </div>
+        </div>
+
+        <div class="info-box sukses">
+          <div class="ikon">🎉</div>
+          <div><strong>Luar biasa!</strong> Bab 04 selesai. Kamu sudah kuasai teknik isolasi variabel — senjata utama di hampir semua soal matematika SMP!</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('pendalaman', document.querySelectorAll('#page-bab04 .nav-item')[2])">← Pendalaman</button>
+          <button class="btn-nav primer" onclick="navigasi('bab05')">Bab 05: Perbandingan →</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div><!-- /page-bab04 -->
+
+
+<!-- ████████████████████████████████████████████
+     BAB 05 — PERBANDINGAN
+████████████████████████████████████████████ -->
+<div id="page-bab05" class="page">
+  <div class="bab-layout">
+    <nav class="sidebar">
+      <div class="sidebar-logo" onclick="navigasi('home')">
+        <div class="sidebar-logo-nama">📐 MathSMP</div>
+        <div class="sidebar-logo-sub">← Kembali ke Halaman Utama</div>
+      </div>
+      <div class="sidebar-bab-judul">Bab 05 · Navigasi</div>
+      <div class="nav-item aktif" onclick="gantiSeksi('dasar', this)">
+        <div class="nav-item-icon">⚖️</div>Konsep Dasar
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('pengembangan', this)">
+        <div class="nav-item-icon">📐</div>Pengembangan
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('pendalaman', this)">
+        <div class="nav-item-icon">🧠</div>Pendalaman
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('kuis', this)">
+        <div class="nav-item-icon">✏️</div>Latihan Kuis
+      </div>
+      <div class="sidebar-progress">
+        <div class="sidebar-progress-label">
+          <span>Progress bab ini</span><span id="pct">25%</span>
+        </div>
+        <div class="sidebar-progress-bar">
+          <div class="sidebar-progress-fill" id="progFill"></div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="bab-konten">
+      <div class="bab-header">
+        <div class="bab-header-breadcrumb">
+          <span onclick="navigasi('home')" style="cursor:pointer;color:var(--biru)">Beranda</span>
+          › <span>Fase 1</span> › <span>Bab 05</span>
+        </div>
+        <h1>Perbandingan</h1>
+        <div class="bab-header-meta">
+          <span class="bab-kelas kls-7">Kelas 7</span>
+          <span style="font-size:13px;color:var(--teks3)">Fase 1 — Fondasi</span>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 1: KONSEP DASAR ══ -->
+      <div id="seksi-dasar" class="seksi tampil">
+        <div class="level-banner banner-sd">⭐ Level: Konsep Dasar</div>
+
+        <div class="analogi">
+          <strong>🍕 Perbandingan senilai:</strong> Kamu pesan 2 pizza, dapat 16 potong. Pesan 4 pizza, dapat 32 potong. Semakin banyak pizza → semakin banyak potong. <em>Keduanya naik bersama</em> — ini <strong>perbandingan senilai</strong>.<br><br>
+          <strong>🚗 Perbandingan berbalik nilai:</strong> Perjalanan 120 km. Kecepatan 60 km/jam → 2 jam. Kecepatan 120 km/jam → 1 jam. Semakin cepat → semakin <em>sedikit</em> waktu. <em>Satu naik, satu turun</em> — ini <strong>perbandingan berbalik nilai</strong>.
+        </div>
+
+        <!-- Visualisasi interaktif: senilai vs berbalik nilai -->
+        <div class="interaktif-wrap">
+          <h3>🎮 Senilai vs Berbalik Nilai — Eksplorasi Langsung</h3>
+          <p style="font-size:13px;color:var(--teks2);margin-bottom:12px">Geser slider dan perhatikan bagaimana nilai berubah!</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:10px">
+            <!-- Senilai -->
+            <div style="background:var(--biru-muda);border-radius:10px;padding:14px">
+              <div style="font-size:12px;font-weight:700;color:var(--biru-teks);margin-bottom:8px">📈 SENILAI: y = 3x</div>
+              <input type="range" min="1" max="10" value="3" id="sl-senilai" oninput="updateSenilai(this.value)" style="width:100%;accent-color:var(--biru)">
+              <div style="display:flex;justify-content:space-between;margin-top:8px">
+                <div style="text-align:center">
+                  <div style="font-size:11px;color:var(--biru-teks)">x =</div>
+                  <div id="sv-x" style="font-size:22px;font-weight:800;color:var(--biru-teks)">3</div>
+                </div>
+                <div style="font-size:22px;color:var(--biru-teks);padding-top:12px">→</div>
+                <div style="text-align:center">
+                  <div style="font-size:11px;color:var(--biru-teks)">y =</div>
+                  <div id="sv-y" style="font-size:22px;font-weight:800;color:var(--biru-teks)">9</div>
+                </div>
+              </div>
+              <div id="sv-ket" style="font-size:11px;color:var(--biru-teks);text-align:center;margin-top:6px">3/9 = 1/3 (tetap)</div>
+            </div>
+            <!-- Berbalik nilai -->
+            <div style="background:var(--amber-muda);border-radius:10px;padding:14px">
+              <div style="font-size:12px;font-weight:700;color:var(--amber-teks);margin-bottom:8px">📉 BERBALIK: x × y = 24</div>
+              <input type="range" min="1" max="8" value="3" id="sl-balik" oninput="updateBalik(this.value)" style="width:100%;accent-color:var(--amber)">
+              <div style="display:flex;justify-content:space-between;margin-top:8px">
+                <div style="text-align:center">
+                  <div style="font-size:11px;color:var(--amber-teks)">x =</div>
+                  <div id="bv-x" style="font-size:22px;font-weight:800;color:var(--amber-teks)">3</div>
+                </div>
+                <div style="font-size:22px;color:var(--amber-teks);padding-top:12px">→</div>
+                <div style="text-align:center">
+                  <div style="font-size:11px;color:var(--amber-teks)">y =</div>
+                  <div id="bv-y" style="font-size:22px;font-weight:800;color:var(--amber-teks)">8</div>
+                </div>
+              </div>
+              <div id="bv-ket" style="font-size:11px;color:var(--amber-teks);text-align:center;margin-top:6px">3 × 8 = 24 (tetap)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="kartu">
+          <h2>Dua Jenis Perbandingan</h2>
+          <div class="tabel-wrap">
+            <table class="sifat">
+              <thead><tr><th>Jenis</th><th>Sifat</th><th>Rumus</th><th>Contoh</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><strong>Senilai</strong></td>
+                  <td>x naik → y naik<br>x turun → y turun</td>
+                  <td>x₁/y₁ = x₂/y₂</td>
+                  <td>Harga berbanding jumlah barang</td>
+                </tr>
+                <tr>
+                  <td><strong>Berbalik Nilai</strong></td>
+                  <td>x naik → y turun<br>x turun → y naik</td>
+                  <td>x₁ × y₁ = x₂ × y₂</td>
+                  <td>Kecepatan berbanding waktu tempuh</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="info-box info">
+          <div class="ikon">ℹ️</div>
+          <div><strong>Cara cepat membedakan:</strong> Tanya diri sendiri — "kalau yang satu naik, yang lain ikut naik atau malah turun?" Ikut naik = senilai. Malah turun = berbalik nilai.</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="navigasi('bab04')">← Bab 04</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('pengembangan', document.querySelectorAll('#page-bab05 .nav-item')[1])">Pengembangan →</button>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 2: PENGEMBANGAN ══ -->
+      <div id="seksi-pengembangan" class="seksi">
+        <div class="level-banner banner-smp">📘 Level: Pengembangan</div>
+
+        <div class="kartu">
+          <h2>Menyelesaikan Soal Perbandingan</h2>
+          <div class="rumus">
+            Senilai    : x₁/y₁ = x₂/y₂  →  x₁ × y₂ = x₂ × y₁  (perkalian silang)<br>
+            Berbalik   : x₁ × y₁ = x₂ × y₂  →  y₂ = (x₁ × y₁) ÷ x₂<br>
+            Skala peta : Skala = jarak peta / jarak nyata<br>
+            Jarak nyata: jarak nyata = jarak peta ÷ skala
+          </div>
+
+          <!-- Kalkulator perbandingan interaktif -->
+          <div class="interaktif-wrap" style="margin-top:0;margin-bottom:18px">
+            <h3>🧮 Kalkulator Perbandingan</h3>
+            <div style="margin-bottom:10px;display:flex;gap:10px">
+              <button id="tab-sv" onclick="gantiTabPerb('sv')" style="padding:7px 16px;border-radius:8px;border:1.5px solid var(--biru);background:var(--biru);color:#fff;font-size:13px;font-weight:700;cursor:pointer">Senilai</button>
+              <button id="tab-bv" onclick="gantiTabPerb('bv')" style="padding:7px 16px;border-radius:8px;border:1.5px solid var(--border2);background:var(--bg);color:var(--teks2);font-size:13px;font-weight:600;cursor:pointer">Berbalik Nilai</button>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px">
+              <input type="number" id="perb-x1" value="3" style="width:64px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:15px;font-weight:700;text-align:center">
+              <span style="font-size:15px;color:var(--teks3)">:</span>
+              <input type="number" id="perb-y1" value="12" style="width:64px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:15px;font-weight:700;text-align:center">
+              <span style="font-size:15px;font-weight:700;color:var(--teks)">=</span>
+              <input type="number" id="perb-x2" value="5" style="width:64px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:15px;font-weight:700;text-align:center">
+              <span style="font-size:15px;color:var(--teks3)">:</span>
+              <span id="perb-y2-disp" style="width:64px;text-align:center;font-size:20px;font-weight:800;color:var(--biru-teks)">?</span>
+              <button onclick="hitungPerb()" style="padding:9px 16px;background:var(--biru);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer">Hitung</button>
+            </div>
+            <div id="hasil-perb" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 16px;font-size:14px;line-height:2;min-height:52px"></div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 1 — Senilai Mudah</div>
+            <p>Harga 4 kg apel Rp48.000. Berapa harga 7 kg apel?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol05a')">💡 Lihat Solusi</button>
+          <div id="sol05a" class="solusi">
+            <ol>
+              <li>Ini perbandingan senilai: kg naik → harga naik</li>
+              <li>4/48.000 = 7/y₂ → perkalian silang: 4 × y₂ = 7 × 48.000</li>
+              <li>4y₂ = 336.000 → y₂ = 84.000</li>
+            </ol>
+            <div class="hasil">✓ Harga 7 kg = Rp84.000</div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 2 — Berbalik Nilai</div>
+            <p>6 pekerja menyelesaikan proyek dalam 12 hari. Berapa hari jika dikerjakan 9 pekerja?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol05b')">💡 Lihat Solusi</button>
+          <div id="sol05b" class="solusi">
+            <ol>
+              <li>Berbalik nilai: lebih banyak pekerja → lebih sedikit hari</li>
+              <li>x₁ × y₁ = x₂ × y₂ → 6 × 12 = 9 × y₂</li>
+              <li>72 = 9y₂ → y₂ = 8</li>
+            </ol>
+            <div class="hasil">✓ Diselesaikan dalam 8 hari</div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 3 — Skala Peta</div>
+            <p>Peta berskala 1 : 500.000. Jarak dua kota di peta = 4,5 cm. Berapa jarak aslinya (dalam km)?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol05c')">💡 Lihat Solusi</button>
+          <div id="sol05c" class="solusi">
+            <ol>
+              <li>Skala 1 : 500.000 artinya 1 cm di peta = 500.000 cm nyata</li>
+              <li>Jarak nyata = jarak peta × penyebut skala</li>
+              <li>= 4,5 cm × 500.000 = 2.250.000 cm</li>
+              <li>Ubah ke km: 2.250.000 ÷ 100.000 = <strong>22,5 km</strong></li>
+            </ol>
+            <div class="hasil">✓ Jarak asli = 22,5 km</div>
+          </div>
+        </div>
+
+        <div class="info-box hati">
+          <div class="ikon">⚠️</div>
+          <div><strong>Jebakan skala:</strong> Kalau skala 1:500.000, satuan di peta dan nyata harus sama dulu (cm dengan cm) sebelum dikonversi ke km. Langsung bagi 1000 tanpa konversi → salah!</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('dasar', document.querySelectorAll('#page-bab05 .nav-item')[0])">← Konsep Dasar</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('pendalaman', document.querySelectorAll('#page-bab05 .nav-item')[2])">Pendalaman →</button>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 3: PENDALAMAN ══ -->
+      <div id="seksi-pendalaman" class="seksi">
+        <div class="level-banner banner-sma">🚀 Level: Pendalaman</div>
+
+        <div class="kartu">
+          <h2>Perbandingan Bertingkat &amp; Skala</h2>
+
+          <!-- Kalkulator skala peta interaktif -->
+          <div class="interaktif-wrap" style="margin-top:0;margin-bottom:18px">
+            <h3>🗺️ Kalkulator Skala Peta</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+              <div>
+                <label style="font-size:12px;color:var(--teks2)">Jarak di peta (cm)</label>
+                <input type="number" id="sk-peta" value="4.5" step="0.1" oninput="hitungSkala()" style="width:100%;display:block;margin-top:4px;padding:9px;border:1.5px solid var(--border2);border-radius:8px;font-size:15px;font-weight:700">
+              </div>
+              <div>
+                <label style="font-size:12px;color:var(--teks2)">Skala (1 : ...)</label>
+                <input type="number" id="sk-skala" value="500000" oninput="hitungSkala()" style="width:100%;display:block;margin-top:4px;padding:9px;border:1.5px solid var(--border2);border-radius:8px;font-size:15px;font-weight:700">
+              </div>
+            </div>
+            <div id="hasil-skala" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 16px;font-size:14px;line-height:2"></div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Soal Aplikasi 1 — Perbandingan Bertingkat</div>
+            <p>Perbandingan uang Amir : Budi : Candra = 2 : 3 : 5. Total uang mereka Rp200.000. Berapa uang masing-masing?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol05d')">💡 Lihat Solusi</button>
+          <div id="sol05d" class="solusi">
+            <ol>
+              <li>Total bagian = 2 + 3 + 5 = 10 bagian</li>
+              <li>Nilai 1 bagian = Rp200.000 ÷ 10 = Rp20.000</li>
+              <li>Amir = 2 × Rp20.000 = <strong>Rp40.000</strong></li>
+              <li>Budi = 3 × Rp20.000 = <strong>Rp60.000</strong></li>
+              <li>Candra = 5 × Rp20.000 = <strong>Rp100.000</strong></li>
+              <li>Cek: 40.000 + 60.000 + 100.000 = 200.000 ✓</li>
+            </ol>
+            <div class="hasil">✓ Amir Rp40.000 | Budi Rp60.000 | Candra Rp100.000</div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Soal Aplikasi 2 — Campuran</div>
+            <p>Sebuah mobil menempuh 180 km dalam 3 jam. Dengan kecepatan yang sama, berapa km yang ditempuh dalam 5 jam?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol05e')">💡 Lihat Solusi</button>
+          <div id="sol05e" class="solusi">
+            <ol>
+              <li>Senilai: jam bertambah → km bertambah</li>
+              <li>Kecepatan tetap = 180 ÷ 3 = 60 km/jam</li>
+              <li>Cara perbandingan: 3/180 = 5/y₂ → y₂ = (5 × 180) ÷ 3 = 300</li>
+            </ol>
+            <div class="hasil">✓ 300 km dalam 5 jam</div>
+          </div>
+        </div>
+
+        <div class="info-box tips">
+          <div class="ikon">🔗</div>
+          <div><strong>Koneksi ke Bab 06 (Aritmetika Sosial):</strong> Perbandingan adalah dasar dari semua perhitungan diskon, pajak, dan bunga. Misalnya "diskon 20%" berarti perbandingan harga baru : harga lama = 80 : 100.</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('pengembangan', document.querySelectorAll('#page-bab05 .nav-item')[1])">← Pengembangan</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('kuis', document.querySelectorAll('#page-bab05 .nav-item')[3])">Latihan Kuis →</button>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 4: KUIS ══ -->
+      <div id="seksi-kuis" class="seksi">
+        <div class="level-banner banner-smp">✏️ Latihan Kuis</div>
+
+        <div class="kartu">
+          <div class="kuis-label">Kuis 1 dari 2</div>
+          <div class="kuis-soal">Jika 5 pensil harganya Rp7.500, harga 12 pensil adalah...</div>
+          <div class="kuis-opsi">
+            <button class="opsi" onclick="jawab(this, false, 'k5q1')">A. Rp15.000</button>
+            <button class="opsi" onclick="jawab(this, false, 'k5q1')">B. Rp16.000</button>
+            <button class="opsi" onclick="jawab(this, true,  'k5q1')">C. Rp18.000</button>
+            <button class="opsi" onclick="jawab(this, false, 'k5q1')">D. Rp20.000</button>
+          </div>
+          <div id="k5q1-fb" class="kuis-fb"></div>
+          <div class="kuis-pembahasan">
+            <strong>Pembahasan:</strong><br>
+            Senilai: 5/7.500 = 12/y₂<br>
+            y₂ = (12 × 7.500) ÷ 5 = 90.000 ÷ 5 = <strong>Rp18.000</strong><br>
+            Cara lain: harga per pensil = 7.500÷5 = 1.500 → 12 × 1.500 = 18.000
+          </div>
+        </div>
+
+        <div class="kartu">
+          <div class="kuis-label">Kuis 2 dari 2</div>
+          <div class="kuis-soal">8 orang bisa mengecat rumah dalam 6 hari. Jika hanya 4 orang, berapa hari yang dibutuhkan?</div>
+          <div class="kuis-opsi">
+            <button class="opsi" onclick="jawab(this, false, 'k5q2')">A. 3 hari</button>
+            <button class="opsi" onclick="jawab(this, false, 'k5q2')">B. 8 hari</button>
+            <button class="opsi" onclick="jawab(this, true,  'k5q2')">C. 12 hari</button>
+            <button class="opsi" onclick="jawab(this, false, 'k5q2')">D. 16 hari</button>
+          </div>
+          <div id="k5q2-fb" class="kuis-fb"></div>
+          <div class="kuis-pembahasan">
+            <strong>Pembahasan:</strong><br>
+            Berbalik nilai: orang berkurang → hari bertambah<br>
+            x₁ × y₁ = x₂ × y₂ → 8 × 6 = 4 × y₂<br>
+            48 = 4y₂ → y₂ = <strong>12 hari</strong><br>
+            Pilihan A (3 hari) adalah jebakan senilai — jangan terbalik!
+          </div>
+        </div>
+
+        <div class="info-box sukses">
+          <div class="ikon">🎉</div>
+          <div><strong>Keren!</strong> Bab 05 selesai. Kamu sudah bisa membedakan senilai vs berbalik nilai dan menyelesaikan soal skala peta!</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('pendalaman', document.querySelectorAll('#page-bab05 .nav-item')[2])">← Pendalaman</button>
+          <button class="btn-nav primer" onclick="navigasi('bab06')">Bab 06: Aritmetika Sosial →</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div><!-- /page-bab05 -->
+
+
+<!-- ████████████████████████████████████████████
+     BAB 06 — ARITMETIKA SOSIAL
+████████████████████████████████████████████ -->
+<div id="page-bab06" class="page">
+  <div class="bab-layout">
+    <nav class="sidebar">
+      <div class="sidebar-logo" onclick="navigasi('home')">
+        <div class="sidebar-logo-nama">📐 MathSMP</div>
+        <div class="sidebar-logo-sub">← Kembali ke Halaman Utama</div>
+      </div>
+      <div class="sidebar-bab-judul">Bab 06 · Navigasi</div>
+      <div class="nav-item aktif" onclick="gantiSeksi('dasar', this)">
+        <div class="nav-item-icon">💰</div>Konsep Dasar
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('pengembangan', this)">
+        <div class="nav-item-icon">📐</div>Pengembangan
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('pendalaman', this)">
+        <div class="nav-item-icon">🧠</div>Pendalaman
+      </div>
+      <div class="nav-item" onclick="gantiSeksi('kuis', this)">
+        <div class="nav-item-icon">✏️</div>Latihan Kuis
+      </div>
+      <div class="sidebar-progress">
+        <div class="sidebar-progress-label">
+          <span>Progress bab ini</span><span id="pct">25%</span>
+        </div>
+        <div class="sidebar-progress-bar">
+          <div class="sidebar-progress-fill" id="progFill"></div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="bab-konten">
+      <div class="bab-header">
+        <div class="bab-header-breadcrumb">
+          <span onclick="navigasi('home')" style="cursor:pointer;color:var(--biru)">Beranda</span>
+          › <span>Fase 1</span> › <span>Bab 06</span>
+        </div>
+        <h1>Aritmetika Sosial</h1>
+        <div class="bab-header-meta">
+          <span class="bab-kelas kls-7">Kelas 7</span>
+          <span style="font-size:13px;color:var(--teks3)">Fase 1 — Fondasi</span>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 1: KONSEP DASAR ══ -->
+      <div id="seksi-dasar" class="seksi tampil">
+        <div class="level-banner banner-sd">⭐ Level: Konsep Dasar</div>
+
+        <div class="analogi">
+          <strong>🛍️ Semua ini terjadi setiap hari!</strong> Kamu beli baju diskon 30%? — itu <em>persentase</em>. Warung Pak Budi beli mie Rp3.000 lalu jual Rp4.000? — itu <em>untung</em>. Gaji ortu kena potongan pajak? — itu <em>pajak</em>. Nabung di bank dapat bonus tiap bulan? — itu <em>bunga</em>. Semua konsep ini adalah <strong>Aritmetika Sosial</strong> — matematika yang hidup di pasar, toko, dan bank!
+        </div>
+
+        <!-- Simulator toko interaktif -->
+        <div class="interaktif-wrap">
+          <h3>🏪 Simulator Toko — Hitung Untung/Rugi</h3>
+          <p style="font-size:13px;color:var(--teks2);margin-bottom:12px">Masukkan harga beli dan harga jual untuk melihat untung/rugi dan persentasenya!</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+            <div>
+              <label style="font-size:12px;color:var(--teks2)">Harga Beli (Modal) — Rp</label>
+              <input type="number" id="hb" value="80000" oninput="hitungUR()" style="width:100%;display:block;margin-top:4px;padding:9px;border:1.5px solid var(--border2);border-radius:8px;font-size:15px;font-weight:700">
+            </div>
+            <div>
+              <label style="font-size:12px;color:var(--teks2)">Harga Jual — Rp</label>
+              <input type="number" id="hj" value="100000" oninput="hitungUR()" style="width:100%;display:block;margin-top:4px;padding:9px;border:1.5px solid var(--border2);border-radius:8px;font-size:15px;font-weight:700">
+            </div>
+          </div>
+          <div id="hasil-ur" style="border-radius:10px;padding:16px 20px;font-size:15px;line-height:2.2;font-weight:600;text-align:center"></div>
+        </div>
+
+        <div class="kartu">
+          <h2>Konsep Dasar: Untung, Rugi &amp; Impas</h2>
+          <div class="rumus">
+            Untung = Harga Jual − Harga Beli       (jika HJ > HB)<br>
+            Rugi   = Harga Beli − Harga Jual       (jika HB > HJ)<br>
+            Persentase Untung = (Untung ÷ HB) × 100%<br>
+            Persentase Rugi   = (Rugi   ÷ HB) × 100%
+          </div>
+          <div class="tabel-wrap">
+            <table class="sifat">
+              <thead><tr><th>Kondisi</th><th>Rumus Utama</th><th>Persentase (dari HB)</th></tr></thead>
+              <tbody>
+                <tr><td>Untung</td><td>HJ &gt; HB → U = HJ − HB</td><td>%U = (U/HB)×100</td></tr>
+                <tr><td>Rugi</td><td>HB &gt; HJ → R = HB − HJ</td><td>%R = (R/HB)×100</td></tr>
+                <tr><td>Impas</td><td>HJ = HB</td><td>0%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="info-box hati">
+          <div class="ikon">⚠️</div>
+          <div><strong>Persentase SELALU dihitung dari Harga Beli (modal), bukan harga jual!</strong> Ini kesalahan paling umum. Untung 20% artinya 20% dari modal, bukan dari harga jual.</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="navigasi('bab05')">← Bab 05</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('pengembangan', document.querySelectorAll('#page-bab06 .nav-item')[1])">Pengembangan →</button>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 2: PENGEMBANGAN ══ -->
+      <div id="seksi-pengembangan" class="seksi">
+        <div class="level-banner banner-smp">📘 Level: Pengembangan</div>
+
+        <div class="kartu">
+          <h2>Diskon, Pajak, Bruto, Neto &amp; Tara</h2>
+          <div class="rumus">
+            Diskon       : Harga Setelah Diskon = HJ × (100% − %diskon)<br>
+            PPN/Pajak    : Harga + Pajak = HJ × (100% + %pajak)<br>
+            Bruto        : berat kotor (kemasan + isi)<br>
+            Neto         : berat bersih (isi saja)<br>
+            Tara         : berat kemasan = Bruto − Neto<br>
+            %Tara        : (Tara ÷ Bruto) × 100%
+          </div>
+
+          <!-- Kalkulator belanja lengkap -->
+          <div class="interaktif-wrap" style="margin-top:0;margin-bottom:18px">
+            <h3>🛒 Kalkulator Belanja Lengkap</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+              <div>
+                <label style="font-size:12px;color:var(--teks2)">Harga asli (Rp)</label>
+                <input type="number" id="bl-harga" value="200000" oninput="hitungBelanja()" style="width:100%;display:block;margin-top:4px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:14px;font-weight:700">
+              </div>
+              <div>
+                <label style="font-size:12px;color:var(--teks2)">Diskon (%)</label>
+                <input type="number" id="bl-diskon" value="20" min="0" max="100" oninput="hitungBelanja()" style="width:100%;display:block;margin-top:4px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:14px;font-weight:700">
+              </div>
+              <div>
+                <label style="font-size:12px;color:var(--teks2)">Pajak/PPN (%)</label>
+                <input type="number" id="bl-pajak" value="11" min="0" oninput="hitungBelanja()" style="width:100%;display:block;margin-top:4px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:14px;font-weight:700">
+              </div>
+              <div>
+                <label style="font-size:12px;color:var(--teks2)">Jumlah barang</label>
+                <input type="number" id="bl-qty" value="2" min="1" oninput="hitungBelanja()" style="width:100%;display:block;margin-top:4px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:14px;font-weight:700">
+              </div>
+            </div>
+            <div id="hasil-belanja" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;font-size:13px;line-height:2.2"></div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 1 — Untung/Rugi</div>
+            <p>Pedagang membeli 5 kg mangga seharga Rp60.000, lalu menjualnya Rp14.000/kg. Untung atau rugi? Berapa persennya?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol06a')">💡 Lihat Solusi</button>
+          <div id="sol06a" class="solusi">
+            <ol>
+              <li>HB = Rp60.000, HJ = 5 × Rp14.000 = Rp70.000</li>
+              <li>HJ &gt; HB → <strong>Untung</strong></li>
+              <li>Untung = 70.000 − 60.000 = Rp10.000</li>
+              <li>%Untung = (10.000 ÷ 60.000) × 100% ≈ <strong>16,7%</strong></li>
+            </ol>
+            <div class="hasil">✓ Untung Rp10.000 (≈16,7%)</div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 2 — Diskon Bertingkat</div>
+            <p>Baju seharga Rp200.000 didiskon 20%, lalu didiskon lagi 10%. Berapa harga akhirnya?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol06b')">💡 Lihat Solusi</button>
+          <div id="sol06b" class="solusi">
+            <ol>
+              <li>Setelah diskon 20%: 200.000 × 80% = Rp160.000</li>
+              <li>Setelah diskon 10% lagi: 160.000 × 90% = Rp144.000</li>
+              <li><strong>Bukan</strong> 200.000 × 70% = 140.000 — diskon bertingkat ≠ diskon dijumlah!</li>
+            </ol>
+            <div class="hasil">✓ Harga akhir Rp144.000 (bukan Rp140.000!)</div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Contoh Soal 3 — Bruto, Neto, Tara</div>
+            <p>Sekarung beras tertulis bruto 25 kg. Jika tara 2%, berapa neto beras tersebut?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol06c')">💡 Lihat Solusi</button>
+          <div id="sol06c" class="solusi">
+            <ol>
+              <li>Tara = 2% × 25 kg = 0,5 kg</li>
+              <li>Neto = Bruto − Tara = 25 − 0,5 = <strong>24,5 kg</strong></li>
+            </ol>
+            <div class="hasil">✓ Neto = 24,5 kg</div>
+          </div>
+        </div>
+
+        <div class="info-box bahaya">
+          <div class="ikon">🚨</div>
+          <div><strong>Diskon bertingkat ≠ diskon dijumlah!</strong> Diskon 20% + 10% BUKAN 30%. Selalu hitung diskon pertama dulu, hasilnya baru kena diskon kedua. Perbedaan ini sering bikin rugi di kasir!</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('dasar', document.querySelectorAll('#page-bab06 .nav-item')[0])">← Konsep Dasar</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('pendalaman', document.querySelectorAll('#page-bab06 .nav-item')[2])">Pendalaman →</button>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 3: PENDALAMAN ══ -->
+      <div id="seksi-pendalaman" class="seksi">
+        <div class="level-banner banner-sma">🚀 Level: Pendalaman</div>
+
+        <div class="kartu">
+          <h2>Bunga Tunggal &amp; Soal Terbalik</h2>
+          <div class="rumus">
+            Bunga Tunggal per tahun : B = M × %bunga × t<br>
+            Total tabungan          : T = M + B = M × (1 + %bunga × t)<br>
+            Keterangan: M = modal/pokok, t = waktu (tahun)<br>
+            Soal terbalik: cari HB dari HJ dan %untung<br>
+            → HB = HJ ÷ (1 + %untung/100)
+          </div>
+
+          <!-- Kalkulator bunga tunggal interaktif -->
+          <div class="interaktif-wrap" style="margin-top:0;margin-bottom:18px">
+            <h3>🏦 Kalkulator Bunga Tunggal</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px">
+              <div>
+                <label style="font-size:12px;color:var(--teks2)">Modal (Rp)</label>
+                <input type="number" id="bg-modal" value="1000000" oninput="hitungBunga()" style="width:100%;display:block;margin-top:4px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:13px;font-weight:700">
+              </div>
+              <div>
+                <label style="font-size:12px;color:var(--teks2)">Bunga/tahun (%)</label>
+                <input type="number" id="bg-persen" value="6" step="0.5" oninput="hitungBunga()" style="width:100%;display:block;margin-top:4px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:13px;font-weight:700">
+              </div>
+              <div>
+                <label style="font-size:12px;color:var(--teks2)">Waktu (bulan)</label>
+                <input type="number" id="bg-waktu" value="18" oninput="hitungBunga()" style="width:100%;display:block;margin-top:4px;padding:8px;border:1.5px solid var(--border2);border-radius:8px;font-size:13px;font-weight:700">
+              </div>
+            </div>
+            <div id="hasil-bunga" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;font-size:13px;line-height:2.2"></div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Soal Aplikasi 1 — Soal Terbalik</div>
+            <p>Sebuah laptop dijual Rp5.500.000 dengan keuntungan 10%. Berapa harga belinya?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol06d')">💡 Lihat Solusi</button>
+          <div id="sol06d" class="solusi">
+            <ol>
+              <li>HJ = HB × (100% + 10%) = HB × 110%</li>
+              <li>5.500.000 = HB × 1,1</li>
+              <li>HB = 5.500.000 ÷ 1,1 = <strong>Rp5.000.000</strong></li>
+            </ol>
+            <div class="hasil">✓ Harga beli laptop = Rp5.000.000</div>
+          </div>
+
+          <div class="soal-box">
+            <div class="soal-label">Soal Aplikasi 2 — Bunga Tunggal</div>
+            <p>Rini menabung Rp2.000.000 dengan bunga tunggal 9% per tahun. Setelah berapa bulan tabungannya menjadi Rp2.270.000?</p>
+          </div>
+          <button class="btn-solusi" onclick="toggleSolusi('sol06e')">💡 Lihat Solusi</button>
+          <div id="sol06e" class="solusi">
+            <ol>
+              <li>Bunga yang diperoleh = 2.270.000 − 2.000.000 = Rp270.000</li>
+              <li>B = M × %bunga × t → 270.000 = 2.000.000 × 9% × t</li>
+              <li>270.000 = 180.000 × t</li>
+              <li>t = 270.000 ÷ 180.000 = 1,5 tahun = <strong>18 bulan</strong></li>
+            </ol>
+            <div class="hasil">✓ Setelah 18 bulan</div>
+          </div>
+        </div>
+
+        <div class="info-box tips">
+          <div class="ikon">🔗</div>
+          <div><strong>Ini adalah penutup Fase 1!</strong> Kamu sudah kuasai semua fondasi: bilangan, himpunan, aljabar, persamaan, perbandingan, dan aritmetika sosial. Fase 2 akan membawamu ke dunia koordinat dan fungsi — yang lebih visual dan seru!</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('pengembangan', document.querySelectorAll('#page-bab06 .nav-item')[1])">← Pengembangan</button>
+          <button class="btn-nav primer" onclick="gantiSeksi('kuis', document.querySelectorAll('#page-bab06 .nav-item')[3])">Latihan Kuis →</button>
+        </div>
+      </div>
+
+      <!-- ══ SEKSI 4: KUIS ══ -->
+      <div id="seksi-kuis" class="seksi">
+        <div class="level-banner banner-smp">✏️ Latihan Kuis</div>
+
+        <div class="kartu">
+          <div class="kuis-label">Kuis 1 dari 2</div>
+          <div class="kuis-soal">Sepatu dijual Rp330.000 dengan diskon 25%. Harga yang harus dibayar adalah...</div>
+          <div class="kuis-opsi">
+            <button class="opsi" onclick="jawab(this, false, 'k6q1')">A. Rp82.500</button>
+            <button class="opsi" onclick="jawab(this, false, 'k6q1')">B. Rp247.000</button>
+            <button class="opsi" onclick="jawab(this, true,  'k6q1')">C. Rp247.500</button>
+            <button class="opsi" onclick="jawab(this, false, 'k6q1')">D. Rp255.000</button>
+          </div>
+          <div id="k6q1-fb" class="kuis-fb"></div>
+          <div class="kuis-pembahasan">
+            <strong>Pembahasan:</strong><br>
+            Diskon = 25% × 330.000 = Rp82.500<br>
+            Harga bayar = 330.000 − 82.500 = <strong>Rp247.500</strong><br>
+            Cara cepat: 330.000 × 75% = 330.000 × 0,75 = 247.500
+          </div>
+        </div>
+
+        <div class="kartu">
+          <div class="kuis-label">Kuis 2 dari 2</div>
+          <div class="kuis-soal">Modal Rp500.000, bunga tunggal 12%/tahun. Besar bunga setelah 8 bulan adalah...</div>
+          <div class="kuis-opsi">
+            <button class="opsi" onclick="jawab(this, false, 'k6q2')">A. Rp60.000</button>
+            <button class="opsi" onclick="jawab(this, true,  'k6q2')">B. Rp40.000</button>
+            <button class="opsi" onclick="jawab(this, false, 'k6q2')">C. Rp48.000</button>
+            <button class="opsi" onclick="jawab(this, false, 'k6q2')">D. Rp80.000</button>
+          </div>
+          <div id="k6q2-fb" class="kuis-fb"></div>
+          <div class="kuis-pembahasan">
+            <strong>Pembahasan:</strong><br>
+            t = 8 bulan = 8/12 tahun<br>
+            B = 500.000 × 12% × (8/12)<br>
+            B = 500.000 × 0,12 × 0,667 = <strong>Rp40.000</strong><br>
+            Pilihan A (Rp60.000) adalah jika t = 1 tahun penuh — jangan lupa konversi bulan ke tahun!
+          </div>
+        </div>
+
+        <div class="info-box sukses">
+          <div class="ikon">🏆</div>
+          <div><strong>Selamat! Fase 1 TUNTAS!</strong> Kamu telah menyelesaikan 6 bab fondasi matematika SMP. Lanjut ke Fase 2 untuk belajar koordinat, fungsi, dan grafik!</div>
+        </div>
+
+        <div class="nav-bawah">
+          <button class="btn-nav" onclick="navigasi('home')">🏠 Beranda</button>
+          <button class="btn-nav" onclick="gantiSeksi('pendalaman', document.querySelectorAll('#page-bab06 .nav-item')[2])">← Pendalaman</button>
+          <button class="btn-nav primer" onclick="navigasi('bab07')">Bab 07: Koordinat Kartesius →</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div><!-- /page-bab06 -->
+
+
+<!-- ████████████████████████████████████████████
+     BAB 07–27 — PLACEHOLDER
 ████████████████████████████████████████████ -->
 
 <!-- Template placeholder untuk bab belum selesai -->
@@ -1813,6 +3184,299 @@ function pindahIrisan(chip) {
   }
 }
 
+
+
+
+
+// Simulator toko untung/rugi Bab 06
+function hitungUR() {
+  const hb = parseFloat(document.getElementById('hb')?.value) || 0;
+  const hj = parseFloat(document.getElementById('hj')?.value) || 0;
+  const el = document.getElementById('hasil-ur');
+  if (!el || hb <= 0) return;
+  const selisih = hj - hb;
+  const pct = (Math.abs(selisih) / hb * 100).toFixed(1);
+  if (selisih > 0) {
+    el.style.background = 'var(--hijau-muda)';
+    el.style.color = 'var(--hijau-teks)';
+    el.innerHTML = '↗️ UNTUNG<br>Rp' + selisih.toLocaleString('id') + ' (' + pct + '% dari modal)';
+  } else if (selisih < 0) {
+    el.style.background = 'var(--merah-muda)';
+    el.style.color = 'var(--merah-teks)';
+    el.innerHTML = '↘️ RUGI<br>Rp' + Math.abs(selisih).toLocaleString('id') + ' (' + pct + '% dari modal)';
+  } else {
+    el.style.background = 'var(--bg3)';
+    el.style.color = 'var(--teks2)';
+    el.innerHTML = '↔️ IMPAS — Tidak untung, tidak rugi';
+  }
+}
+hitungUR();
+
+// Kalkulator belanja lengkap Bab 06
+function hitungBelanja() {
+  const harga  = parseFloat(document.getElementById('bl-harga')?.value)  || 0;
+  const diskon = parseFloat(document.getElementById('bl-diskon')?.value) || 0;
+  const pajak  = parseFloat(document.getElementById('bl-pajak')?.value)  || 0;
+  const qty    = parseInt(document.getElementById('bl-qty')?.value)      || 1;
+  const el = document.getElementById('hasil-belanja');
+  if (!el) return;
+  const setelahDiskon = harga * (1 - diskon/100);
+  const potongan = harga - setelahDiskon;
+  const setelahPajak = setelahDiskon * (1 + pajak/100);
+  const nilaiPajak = setelahDiskon * pajak/100;
+  const total = setelahPajak * qty;
+  el.innerHTML =
+    'Harga asli: Rp' + harga.toLocaleString('id') + '<br>' +
+    'Diskon ' + diskon + '%: − Rp' + Math.round(potongan).toLocaleString('id') + '<br>' +
+    'Setelah diskon: Rp' + Math.round(setelahDiskon).toLocaleString('id') + '<br>' +
+    'PPN ' + pajak + '%: + Rp' + Math.round(nilaiPajak).toLocaleString('id') + '<br>' +
+    'Per barang: Rp' + Math.round(setelahPajak).toLocaleString('id') + '<br>' +
+    '<strong style="font-size:16px;color:var(--biru-teks)">' + qty + ' barang = Rp' + Math.round(total).toLocaleString('id') + '</strong>';
+}
+hitungBelanja();
+
+// Kalkulator bunga tunggal Bab 06
+function hitungBunga() {
+  const M  = parseFloat(document.getElementById('bg-modal')?.value)  || 0;
+  const p  = parseFloat(document.getElementById('bg-persen')?.value) || 0;
+  const bln = parseFloat(document.getElementById('bg-waktu')?.value) || 0;
+  const el = document.getElementById('hasil-bunga');
+  if (!el) return;
+  const t = bln / 12;
+  const B = M * (p/100) * t;
+  const T = M + B;
+  el.innerHTML =
+    'B = ' + M.toLocaleString('id') + ' × ' + p + '% × ' + bln + '/12<br>' +
+    'Bunga = <strong style="color:var(--amber-teks)">Rp' + Math.round(B).toLocaleString('id') + '</strong><br>' +
+    'Total tabungan = <strong style="color:var(--hijau-teks)">Rp' + Math.round(T).toLocaleString('id') + '</strong>';
+}
+hitungBunga();
+
+// Slider senilai & berbalik nilai Bab 05
+function updateSenilai(v) {
+  v = parseInt(v);
+  const y = 3 * v;
+  const svX = document.getElementById('sv-x');
+  const svY = document.getElementById('sv-y');
+  const svK = document.getElementById('sv-ket');
+  if (svX) svX.textContent = v;
+  if (svY) svY.textContent = y;
+  if (svK) svK.textContent = v + '/' + y + ' = 1/3 (tetap)';
+}
+function updateBalik(v) {
+  v = parseInt(v);
+  const y = Math.round(24 / v);
+  const bvX = document.getElementById('bv-x');
+  const bvY = document.getElementById('bv-y');
+  const bvK = document.getElementById('bv-ket');
+  if (bvX) bvX.textContent = v;
+  if (bvY) bvY.textContent = y;
+  if (bvK) bvK.textContent = v + ' × ' + y + ' = ' + (v*y) + (v*y===24?' (tetap)':' (≈ 24)');
+}
+
+// Tab perbandingan Bab 05
+let modePerb = 'sv';
+function gantiTabPerb(mode) {
+  modePerb = mode;
+  const sv = document.getElementById('tab-sv');
+  const bv = document.getElementById('tab-bv');
+  if (!sv || !bv) return;
+  sv.style.background = mode==='sv' ? 'var(--biru)' : 'var(--bg)';
+  sv.style.color = mode==='sv' ? '#fff' : 'var(--teks2)';
+  sv.style.borderColor = mode==='sv' ? 'var(--biru)' : 'var(--border2)';
+  bv.style.background = mode==='bv' ? 'var(--amber)' : 'var(--bg)';
+  bv.style.color = mode==='bv' ? '#fff' : 'var(--teks2)';
+  bv.style.borderColor = mode==='bv' ? 'var(--amber)' : 'var(--border2)';
+}
+
+// Hitung perbandingan Bab 05
+function hitungPerb() {
+  const x1 = parseFloat(document.getElementById('perb-x1')?.value) || 0;
+  const y1 = parseFloat(document.getElementById('perb-y1')?.value) || 0;
+  const x2 = parseFloat(document.getElementById('perb-x2')?.value) || 0;
+  const el  = document.getElementById('hasil-perb');
+  const disp = document.getElementById('perb-y2-disp');
+  if (!el || x2 === 0) return;
+  let y2, rumus;
+  if (modePerb === 'sv') {
+    y2 = (x2 * y1) / x1;
+    rumus = x1 + '/' + y1 + ' = ' + x2 + '/y₂ → y₂ = (' + x2 + '×' + y1 + ')÷' + x1;
+  } else {
+    y2 = (x1 * y1) / x2;
+    rumus = x1 + '×' + y1 + ' = ' + x2 + '×y₂ → y₂ = ' + (x1*y1) + '÷' + x2;
+  }
+  const y2r = Number.isInteger(y2) ? y2 : y2.toFixed(2);
+  if (disp) disp.textContent = y2r;
+  el.innerHTML = rumus + ' = <strong style="color:var(--biru-teks);font-size:16px">' + y2r + '</strong>';
+}
+hitungPerb();
+
+// Kalkulator skala Bab 05
+function hitungSkala() {
+  const peta  = parseFloat(document.getElementById('sk-peta')?.value)  || 0;
+  const skala = parseFloat(document.getElementById('sk-skala')?.value) || 1;
+  const el = document.getElementById('hasil-skala');
+  if (!el) return;
+  const nyataCm = peta * skala;
+  const nyataM  = nyataCm / 100;
+  const nyataKm = nyataCm / 100000;
+  el.innerHTML =
+    'Jarak nyata = ' + peta + ' cm × ' + skala.toLocaleString('id') + ' = <strong>' + nyataCm.toLocaleString('id') + ' cm</strong><br>' +
+    '= <strong>' + nyataM.toLocaleString('id') + ' m</strong> = <strong style="color:var(--biru-teks)">' + nyataKm.toFixed(3) + ' km</strong>';
+}
+hitungSkala();
+
+// Timbangan PLSV step-by-step Bab 04
+function plsvStep(step) {
+  const disp = document.getElementById('plsv-display');
+  const ket  = document.getElementById('plsv-ket');
+  const btn1 = document.getElementById('btn-plsv1');
+  const btn2 = document.getElementById('btn-plsv2');
+  if (!disp) return;
+  if (step === 1) {
+    disp.innerHTML = 'x + 3 <span style="color:var(--merah-teks)">− 3</span> = 7 <span style="color:var(--merah-teks)">− 3</span>';
+    setTimeout(() => {
+      disp.innerHTML = 'x = <span style="color:var(--hijau-teks)">4</span>';
+      if (ket) ket.innerHTML = '<span style="color:var(--hijau-teks);font-weight:700">✓ Selesai! x = 4</span>';
+      if (btn1) btn1.style.display = 'none';
+      if (btn2) btn2.style.display = 'inline-block';
+    }, 900);
+    if (ket) ket.textContent = 'Kurangi 3 dari kedua sisi...';
+  }
+}
+function plsvReset() {
+  const disp = document.getElementById('plsv-display');
+  const ket  = document.getElementById('plsv-ket');
+  const btn1 = document.getElementById('btn-plsv1');
+  const btn2 = document.getElementById('btn-plsv2');
+  if (disp) disp.textContent = 'x + 3 = 7';
+  if (ket)  ket.textContent = '';
+  if (btn1) btn1.style.display = 'inline-block';
+  if (btn2) btn2.style.display = 'none';
+}
+
+// Solver PLSV Bab 04
+function selesaikanPLSV() {
+  const a = parseFloat(document.getElementById('sol-a')?.value) || 0;
+  const b = parseFloat(document.getElementById('sol-b')?.value) || 0;
+  const c = parseFloat(document.getElementById('sol-c')?.value) || 0;
+  const el = document.getElementById('hasil-plsv');
+  if (!el) return;
+  if (a === 0) { el.innerHTML = '<span style="color:var(--merah-teks)">Koefisien x tidak boleh 0!</span>'; return; }
+  const x = (c - b) / a;
+  el.innerHTML =
+    `${a}x + ${b} = ${c}<br>` +
+    `${a}x = ${c} - (${b}) = <strong>${c - b}</strong><br>` +
+    `x = ${c-b} ÷ ${a} = <strong style="color:var(--hijau-teks);font-size:16px">${Number.isInteger(x)?x:x.toFixed(3)}</strong><br>` +
+    `<span style="color:var(--teal-teks)">Cek: ${a}×${Number.isInteger(x)?x:x.toFixed(2)}+${b} = ${(a*x+b).toFixed(2)} ${Math.abs(a*x+b-c)<0.001?'= '+c+' ✓':'≠ '+c}</span>`;
+}
+selesaikanPLSV();
+
+// Visualisasi garis bilangan PtLSV Bab 04
+function visualGaris() {
+  const a  = parseFloat(document.getElementById('pt-a')?.value) || 1;
+  const b  = parseFloat(document.getElementById('pt-b')?.value) || 0;
+  const c  = parseFloat(document.getElementById('pt-c')?.value) || 0;
+  const op = document.getElementById('pt-op')?.value || 'lt';
+  // Selesaikan ax + b [op] c
+  let rhs = (c - b) / a;
+  let opFinal = op;
+  if (a < 0) {
+    opFinal = {lt:'gt', lte:'gte', gt:'lt', gte:'lte'}[op];
+  }
+  const opStr = {lt:'<', lte:'≤', gt:'>', gte:'≥'}[opFinal];
+  const elH = document.getElementById('hasil-ptlsv');
+  if (elH) elH.innerHTML = `Penyelesaian: <strong style="color:var(--biru-teks)">x ${opStr} ${Number.isInteger(rhs)?rhs:rhs.toFixed(2)}</strong>${a<0?' <span style="color:var(--merah-teks);font-size:12px">(tanda dibalik karena ÷ negatif!)</span>':''}`;
+
+  const svg = document.getElementById('garis-pt-content');
+  if (!svg) return;
+  svg.innerHTML = '';
+  const min=-5, max=5, W=380;
+  const toX = v => 20 + ((v-min)/(max-min))*W;
+  const pivot = Math.max(min, Math.min(max, rhs));
+  const px = toX(pivot);
+
+  // Draw solution region
+  const rect = document.createElementNS('http://www.w3.org/2000/svg','rect');
+  const goRight = opFinal === 'gt' || opFinal === 'gte';
+  rect.setAttribute('x', goRight ? px : 20);
+  rect.setAttribute('y', '22');
+  rect.setAttribute('width', goRight ? (toX(max)-px) : (px-20));
+  rect.setAttribute('height', '16');
+  rect.setAttribute('fill', 'var(--biru)');
+  rect.setAttribute('opacity', '0.25');
+  svg.appendChild(rect);
+
+  // Tick marks & labels
+  for (let i=min; i<=max; i++) {
+    const tx = toX(i);
+    const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('x1',tx); line.setAttribute('x2',tx);
+    line.setAttribute('y1','25'); line.setAttribute('y2','35');
+    line.setAttribute('stroke','var(--border2)'); line.setAttribute('stroke-width','1');
+    svg.appendChild(line);
+    const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x',tx); t.setAttribute('y','52');
+    t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','11');
+    t.setAttribute('fill','var(--teks3)'); t.textContent = i;
+    svg.appendChild(t);
+  }
+
+  // Pivot circle
+  const circle = document.createElementNS('http://www.w3.org/2000/svg','circle');
+  circle.setAttribute('cx', px); circle.setAttribute('cy', '30');
+  circle.setAttribute('r', '7');
+  const filled = opFinal === 'lte' || opFinal === 'gte';
+  circle.setAttribute('fill', filled ? 'var(--biru)' : 'var(--bg)');
+  circle.setAttribute('stroke', 'var(--biru)'); circle.setAttribute('stroke-width', '2');
+  svg.appendChild(circle);
+}
+visualGaris();
+
+// Timbangan Aljabar Bab 03
+function updateAlj(val) {
+  val = parseInt(val);
+  document.getElementById('out-x').textContent = val;
+  const hasil = 4 * val + 5;
+  document.getElementById('out-alj-nilai').textContent = hasil;
+  const teksKiri = document.getElementById('teks-kiri');
+  const teksKanan = document.getElementById('teks-kanan');
+  if (teksKiri) teksKiri.textContent = '4x+5 = ' + hasil;
+  if (teksKanan) teksKanan.textContent = String(hasil);
+}
+
+// Kalkulator suku sejenis Bab 03
+function hitungSuku() {
+  const k1 = parseFloat(document.getElementById('k1')?.value) || 0;
+  const k2 = parseFloat(document.getElementById('k2')?.value) || 0;
+  const k3 = parseFloat(document.getElementById('k3')?.value) || 0;
+  const k4 = parseFloat(document.getElementById('k4')?.value) || 0;
+  const x2 = k1 + k2;
+  const x1 = k3 + k4;
+  const el = document.getElementById('hasil-suku');
+  if (!el) return;
+  const x2str = x2 === 0 ? '' : `<strong style="color:var(--biru-teks)">${x2}x²</strong>`;
+  const x1str = x1 === 0 ? '' : ` ${x1 >= 0 && x2 !== 0 ? '+ ' : ''}${x1 < 0 ? '− ' : ''}<strong style="color:var(--hijau-teks)">${Math.abs(x1)}x</strong>`;
+  el.innerHTML = `Suku x²: ${k1}x² + ${k2}x² = ${x2str || '0'}<br>Suku x: ${k3}x + ${k4}x = ${x1str || '0'}<br>Bentuk sederhana: ${x2str || (x2===0?'':x2+'x²')}${x1str || (x1===0?'':x1+'x')}`;
+}
+hitungSuku();
+
+// Eksplorasi identitas Bab 03
+function hitungIdentitas() {
+  const a = parseFloat(document.getElementById('id-a')?.value) || 0;
+  const b = parseFloat(document.getElementById('id-b')?.value) || 0;
+  const kiri = (a + b) ** 2;
+  const kanan = a**2 + 2*a*b + b**2;
+  const el = document.getElementById('hasil-identitas');
+  if (!el) return;
+  el.innerHTML =
+    `(a+b)² = (${a}+${b})² = <strong style="color:var(--biru-teks)">${kiri}</strong><br>` +
+    `a² + 2ab + b² = ${a}² + 2·${a}·${b} + ${b}² = ${a**2} + ${2*a*b} + ${b**2} = <strong style="color:var(--hijau-teks)">${kanan}</strong><br>` +
+    `<span style="color:${kiri===kanan?'var(--hijau-teks)':'var(--merah-teks)'}">` +
+    (kiri===kanan ? '✓ Terbukti sama! Identitas berlaku.' : '⚠ Cek lagi inputnya.') + '</span>';
+}
+hitungIdentitas();
+
 // Kalkulator Venn Bab 02
 function hitungVenn() {
   const nA  = parseInt(document.getElementById('inp-nA')?.value)  || 0;
@@ -1833,13 +3497,9 @@ function hitungVenn() {
 }
 hitungVenn();
 
-// Buat placeholder untuk bab 03–27
+// Buat placeholder untuk bab 07–27
 const babPlaceholder = [
-  {id:'bab03', nama:'Bentuk Aljabar', prev:'bab02', next:'bab04'},
-  {id:'bab03', nama:'Bentuk Aljabar', prev:'bab02', next:'bab04'},
-  {id:'bab04', nama:'Persamaan & Pertidaksamaan Linear', prev:'bab03', next:'bab05'},
-  {id:'bab05', nama:'Perbandingan', prev:'bab04', next:'bab06'},
-  {id:'bab06', nama:'Aritmetika Sosial', prev:'bab05', next:'bab07'},
+  {id:'bab07', nama:'Koordinat Kartesius', prev:'bab06', next:'bab08'},
   {id:'bab07', nama:'Koordinat Kartesius', prev:'bab06', next:'bab08'},
   {id:'bab08', nama:'Pola Bilangan', prev:'bab07', next:'bab09'},
   {id:'bab09', nama:'Relasi & Fungsi', prev:'bab08', next:'bab10'},
