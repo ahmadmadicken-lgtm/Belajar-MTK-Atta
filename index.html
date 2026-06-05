@@ -777,9 +777,102 @@ input[type=range] {
 @media (max-width: 400px) {
   .bab-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* ═══════════════════════════════════════════════
+   DARK MODE
+═══════════════════════════════════════════════ */
+[data-theme="dark"] {
+  --biru:       #4D9FE8; --biru-muda:  #1A2F45; --biru-teks:  #90C8F8;
+  --hijau:      #6DBF5A; --hijau-muda: #1A2D18; --hijau-teks: #9AE087;
+  --amber:      #F0A840; --amber-muda: #2D2010; --amber-teks: #F5C878;
+  --ungu:       #A599F5; --ungu-muda:  #1E1A3A; --ungu-teks:  #C4BAFB;
+  --merah:      #F07070; --merah-muda: #2D1515; --merah-teks: #F5A0A0;
+  --teal:       #4DC4A8; --teal-muda:  #102820; --teal-teks:  #7DDEC8;
+  --bg:         #1A1A1E;
+  --bg2:        #242428;
+  --bg3:        #2E2E34;
+  --teks:       #E8E8E4;
+  --teks2:      #A8A8A4;
+  --teks3:      #686864;
+  --border:     rgba(255,255,255,0.08);
+  --border2:    rgba(255,255,255,0.15);
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] .kartu {
+  background: var(--bg2);
+}
+[data-theme="dark"] .sidebar {
+  background: var(--bg);
+  border-color: var(--border);
+}
+[data-theme="dark"] .kartu-bab {
+  background: var(--bg2);
+}
+[data-theme="dark"] .soal-box {
+  background: var(--bg3);
+}
+[data-theme="dark"] .solusi {
+  background: var(--bg2);
+}
+[data-theme="dark"] input[type="number"],
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background: var(--bg3) !important;
+  color: var(--teks) !important;
+  border-color: var(--border2) !important;
+}
+[data-theme="dark"] .interaktif-wrap {
+  background: var(--bg3);
+}
+[data-theme="dark"] .opsi {
+  background: var(--bg3);
+  color: var(--teks);
+}
+[data-theme="dark"] .progress-bar-wrap,
+[data-theme="dark"] .sidebar-progress-bar {
+  background: var(--bg3);
+}
+[data-theme="dark"] svg {
+  background: var(--bg) !important;
+}
+[data-theme="dark"] .bab-grid .kartu-bab {
+  border-color: var(--border2);
+}
+[data-theme="dark"] .progress-global,
+[data-theme="dark"] .pencarian-wrap input {
+  background: var(--bg2);
+}
+
+/* Toggle button */
+.dark-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border2);
+  background: var(--bg);
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  transition: all .2s;
+  color: var(--teks);
+}
+.dark-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
 </style>
 </head>
 <body>
+<button class="dark-toggle" id="darkToggle" onclick="toggleDark()" title="Toggle Dark/Light Mode">🌙</button>
 
 <!-- ████████████████████████████████████████████
      HALAMAN BERANDA
@@ -848,7 +941,7 @@ input[type=range] {
         <div class="bab-nama">Himpunan</div>
         <div class="bab-meta">
           <span class="bab-kelas kls-7">Kelas 7</span>
-          <span class="bab-badge-segera">Segera hadir</span>
+          <span class="bab-badge-baru">✓ Tersedia</span>
         </div>
       </div>
       <div class="kartu-bab tersedia" onclick="navigasi('bab03')" data-fase="fase1" data-nama="Bentuk Aljabar variabel koefisien operasi">
@@ -9998,6 +10091,29 @@ function updateGaris(val) {
 window.addEventListener('load', () => updateGaris(0));
 
 /* ─── INISIALISASI SPA ─── */
+
+// ── Dark Mode ──
+function toggleDark() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  const btn = document.getElementById('darkToggle');
+  if (btn) btn.textContent = isDark ? '🌙' : '☀️';
+  try { localStorage.setItem('mathsmp-theme', isDark ? 'light' : 'dark'); } catch(e){}
+}
+
+// Apply saved theme on load
+(function() {
+  let saved = 'light';
+  try { saved = localStorage.getItem('mathsmp-theme') || 'light'; } catch(e){}
+  if (saved === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('darkToggle');
+      if (btn) btn.textContent = '☀️';
+    });
+  }
+})();
+
 document.querySelectorAll('.page').forEach(p => { p.style.display = 'none'; });
 const homeEl = document.getElementById('page-home');
 if (homeEl) { homeEl.style.display = 'block'; homeEl.classList.add('aktif'); }
